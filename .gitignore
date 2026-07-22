@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+# Dependencies, caches, and generated output
+node_modules/
+dist/
+build/
+.cache/
+.vite/
+.pnpm-store/
+*.tsbuildinfo
+
+# Logs and editor files
+*.log
+.idea/
+.vscode/
+
+# Private source material (defense in depth)
+CV/
+Pics/
+source-materials/
+

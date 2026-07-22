@@ -1,0 +1,333 @@
+{
+  "contact": {
+    "email": "sean.sunaolong@gmail.com",
+    "github": "https://github.com/aolongsun"
+  },
+  "portrait": {
+    "src": "/images/aolong-sun.jpg",
+    "alt": {
+      "en": "Scenic outdoor portrait of Aolong Sun",
+      "zh": "孙奥龙的户外风景个人照片"
+    }
+  },
+  "educationMarks": [
+    {
+      "src": "/images/institutions/virginia-tech.svg",
+      "alt": {
+        "en": "Virginia Tech logo",
+        "zh": "弗吉尼亚理工大学校徽"
+      }
+    },
+    {
+      "src": "/images/institutions/beijing-normal-university-lockup.png",
+      "alt": {
+        "en": "Beijing Normal University seal, calligraphic Chinese name, and English name",
+        "zh": "北京师范大学校徽、题字校名与英文校名组合"
+      }
+    }
+  ],
+  "facts": [
+    {
+      "value": { "en": "B.S. · M.S. · Ph.D.", "zh": "本科 · 硕士 · 博士" },
+      "label": { "en": "statistics pathway · Ph.D. in progress", "zh": "统计学培养路径 · 博士在读" }
+    },
+    {
+      "value": { "en": "BNU → VT", "zh": "北京师大 → VT" },
+      "label": { "en": "training across China and the United States", "zh": "横跨中国与美国的学习经历" }
+    },
+    {
+      "value": { "en": "Research ↔ Practice", "zh": "研究 ↔ 实践" },
+      "label": { "en": "academic, public-sector, and industry experience", "zh": "学术、公共数据与行业经验" }
+    }
+  ],
+  "locales": {
+    "en": {
+      "metaTitle": "Aolong Sun | Statistics, Modeling & Evidence",
+      "metaDescription": "Aolong Sun is a Statistics PhD student working across statistical modeling, data-intensive research, and machine learning.",
+      "name": "Aolong Sun",
+      "role": "Statistics PhD Student",
+      "eyebrow": "Statistics · Modeling · Machine Learning",
+      "headline": "Turning complex data into rigorous models, interpretable evidence, and reproducible decisions.",
+      "shortBio": "I am a Statistics PhD student at Virginia Tech, with B.S. and M.S. training in statistics from Beijing Normal University. My work spans statistical inference, experimental design, multi-source data, and applied modeling. I am building toward reliable machine-learning systems by combining scientific evaluation with hands-on implementation.",
+      "location": "Blacksburg, Virginia, USA",
+      "education": [
+        {
+          "period": "2025 - Present",
+          "degree": "Ph.D. Student in Statistics",
+          "institution": "Virginia Tech",
+          "officialUrl": "https://www.stat.vt.edu/people/gradstudent.html#:~:text=Aolong%20Sun",
+          "details": [
+            "Statistical inference, linear models, regression, and ANOVA",
+            "Experimental design, categorical data, probability, and distribution theory",
+            "Building-climate simulation, predictive modeling, and sensitivity analysis",
+            "Scientific evaluation of AI and machine-learning models"
+          ]
+        },
+        {
+          "period": "2018 - 2025",
+          "degree": "B.S. in Statistics · M.S. in Economic Statistics",
+          "institution": "Beijing Normal University",
+          "details": [
+            "Economic statistics, econometrics, and multivariate analysis",
+            "Input-output accounting, digital trade, and consumer carbon footprints",
+            "Discrete-choice modeling and applied research design",
+            "Machine-learning foundations and time-series analysis"
+          ]
+        }
+      ],
+      "experience": [
+        {
+          "index": "01",
+          "period": "2025 - Present",
+          "organization": "Virginia Tech",
+          "role": "Current Research Training · Building, Climate & Predictive Modeling",
+          "summary": "Connecting building-climate simulation with predictive modeling, sensitivity analysis, and the scientific evaluation of AI models.",
+          "problem": "Understand how building and climate inputs shape simulation and predictive-model behavior without overstating results from an ongoing research process.",
+          "data": "Building-climate simulation outputs, model inputs, and evaluation results produced within current research training.",
+          "metrics": [
+            { "value": "INPUTS", "label": "building and climate variables" },
+            { "value": "SIM", "label": "simulation outputs" },
+            { "value": "EVAL", "label": "model evaluation results" }
+          ],
+          "method": "Simulation-based analysis, predictive modeling, sensitivity analysis, and structured model evaluation.",
+          "outcome": "An evolving research workflow focused on reproducible comparisons, uncertainty, and transparent evaluation rather than a claimed finished system.",
+          "tags": ["Current Research", "Predictive Modeling", "Sensitivity Analysis"]
+        },
+        {
+          "index": "02",
+          "period": "2022 - 2025",
+          "organization": "National Accounting Research Center",
+          "role": "Project Member · Digital Trade, Input-Output & Data Governance",
+          "summary": "Integrated multi-regional input-output tables, customs, balance-of-payments, and international services datasets before connecting the results to Leontief analysis.",
+          "problem": "Digital-trade measurement depends on sources whose definitions, time coverage, and sector mappings do not naturally agree.",
+          "data": "Chinese multi-regional input-output tables, customs data, balance-of-payments data, and twelve service-trade categories.",
+          "metrics": [
+            { "value": "4", "label": "major source families" },
+            { "value": "12", "label": "service-trade categories" },
+            { "value": "MRIO", "label": "multi-regional network data" }
+          ],
+          "method": "Definition reconciliation, anomaly review, machine-learning-assisted correction and imputation, followed by Leontief input-output analysis.",
+          "outcome": "Produced model-ready inputs for sector-linkage analysis while keeping provenance, assumptions, and data limitations visible.",
+          "tags": ["Data Integration", "Missing Data", "Input-Output Modeling"]
+        },
+        {
+          "index": "03",
+          "period": "2024",
+          "organization": "National Bureau of Statistics of China",
+          "role": "Economic Analysis Intern",
+          "summary": "Built a structured monitoring workflow across World Bank, IMF, and OECD indicators, emphasizing verification and consistent definitions.",
+          "problem": "International indicators require consistent definitions and traceable sources before they can support concise economic monitoring.",
+          "data": "Selected economic indicators and supporting documentation from the World Bank, IMF, and OECD.",
+          "metrics": [
+            { "value": "3", "label": "international data sources" },
+            { "value": "4", "label": "core macro indicators" },
+            { "value": "11", "label": "analytical reports contributed to" }
+          ],
+          "method": "Source verification, definition reconciliation, structured monitoring, and concise evidence-based reporting.",
+          "outcome": "Created a more consistent workflow for monitoring and communicating international statistical indicators.",
+          "tags": ["Economic Indicators", "Data Verification", "Reporting"]
+        },
+        {
+          "index": "04",
+          "period": "2023 - 2024",
+          "organization": "The Hong Kong Polytechnic University",
+          "role": "Research Assistant · Choice Modeling",
+          "summary": "Designed a tourism-intention survey and used R to study social interaction, reference groups, and market segmentation.",
+          "problem": "Travel preferences are not isolated decisions; social reference groups may change how market segments form.",
+          "data": "More than 1,300 survey responses plus economic and tourism indicators across eleven Greater Bay Area cities.",
+          "metrics": [
+            { "value": "1,300+", "label": "survey responses" },
+            { "value": "11", "label": "Greater Bay Area cities" },
+            { "value": "2", "label": "survey and regional-data layers" }
+          ],
+          "method": "Questionnaire and experimental design, R-based multinomial logit and discrete-choice modeling, stationarity checks, parameter comparison, and scenario diagnosis.",
+          "outcome": "Compared model behavior across scenarios and translated quantitative results into interpretable market-segmentation evidence.",
+          "tags": ["R", "Multinomial Logit", "Experimental Design"]
+        },
+        {
+          "index": "05",
+          "period": "2022 - 2023",
+          "organization": "DiDi",
+          "role": "Data Analysis Intern · Driver Platform",
+          "summary": "Used SQL and Python to prepare operational lead data, model driver vehicle-choice intention, and connect analysis with feedback workflows.",
+          "problem": "Driver-acquisition workflows needed consistent lead data and a clearer view of vehicle purchase, rental, fuel, and electric preferences.",
+          "data": "Daily lead flows and more than 30,000 valid operational records prepared through SQL-based extraction, cleaning, and filtering.",
+          "metrics": [
+            { "value": "30,000+", "label": "valid operational records" },
+            { "value": "DAILY", "label": "lead-data workflow" },
+            { "value": "2", "label": "paired choice dimensions" }
+          ],
+          "method": "SQL data workflows, Python feature preparation, and a linear discriminant model for driver choice intention.",
+          "outcome": "Supported lead operations while developing practical awareness of model failure, sample bias, user outreach, and feedback loops.",
+          "tags": ["SQL", "Python", "Operational Analytics"]
+        }
+      ],
+      "approach": [
+        {
+          "index": "A",
+          "title": "Statistical Rigor",
+          "text": "I start with assumptions, data-generating mechanisms, and uncertainty - not only the final score."
+        },
+        {
+          "index": "B",
+          "title": "Evidence Before Complexity",
+          "text": "I value meaningful baselines, scenario comparisons, and failure analysis before adding model complexity."
+        },
+        {
+          "index": "C",
+          "title": "Data Provenance",
+          "text": "I treat source definitions, missingness, anomalies, and changing data scopes as modeling decisions."
+        },
+        {
+          "index": "D",
+          "title": "Reproducible Decisions",
+          "text": "I aim to turn analysis into structured workflows that another person can inspect, rerun, and challenge."
+        }
+      ]
+    },
+    "zh": {
+      "metaTitle": "孙奥龙｜统计、建模与科学证据",
+      "metaDescription": "孙奥龙是弗吉尼亚理工统计学博士生，关注统计建模、数据密集型研究与机器学习的交叉。",
+      "name": "孙奥龙",
+      "role": "统计学博士生",
+      "eyebrow": "统计 · 建模 · 机器学习",
+      "headline": "将复杂数据转化为严谨模型、可解释证据与可复现决策。",
+      "shortBio": "我目前在弗吉尼亚理工攻读统计学博士，本科和硕士均接受过北京师范大学统计学训练。我的经历覆盖统计推断、实验设计、多源数据治理与应用建模。目前，我正将科学评估习惯与动手实现相结合，逐步构建可靠的机器学习实践能力。",
+      "location": "美国弗吉尼亚州黑堡",
+      "education": [
+        {
+          "period": "2025 - 至今",
+          "degree": "统计学博士在读",
+          "institution": "弗吉尼亚理工大学",
+          "officialUrl": "https://www.stat.vt.edu/people/gradstudent.html#:~:text=Aolong%20Sun",
+          "details": [
+            "统计推断、线性模型、回归与方差分析",
+            "实验设计、分类数据、概率与分布理论",
+            "建筑—气候联合仿真、预测建模与敏感性分析",
+            "AI 与机器学习模型的科学评估"
+          ]
+        },
+        {
+          "period": "2018 - 2025",
+          "degree": "统计学本科 · 经济统计学硕士",
+          "institution": "北京师范大学",
+          "details": [
+            "经济统计、计量经济与多元统计分析",
+            "投入产出核算、数字贸易与居民消费碳足迹",
+            "离散选择模型与应用研究设计",
+            "机器学习基础与时间序列分析"
+          ]
+        }
+      ],
+      "experience": [
+        {
+          "index": "01",
+          "period": "2025 - 至今",
+          "organization": "弗吉尼亚理工大学",
+          "role": "当前研究训练 · 建筑、气候与预测建模",
+          "summary": "将建筑—气候联合仿真与预测建模、敏感性分析和 AI 模型的科学评估相连接。",
+          "problem": "理解建筑与气候输入如何影响仿真和预测模型表现，同时避免对正在进行的研究作出超出证据的结论。",
+          "data": "当前研究训练中形成的建筑—气候仿真输出、模型输入与评估结果。",
+          "metrics": [
+            { "value": "输入", "label": "建筑与气候变量" },
+            { "value": "仿真", "label": "联合仿真输出" },
+            { "value": "评估", "label": "模型评估结果" }
+          ],
+          "method": "基于仿真的分析、预测建模、敏感性分析与结构化模型评估。",
+          "outcome": "逐步形成关注可复现比较、不确定性与透明评估的研究流程，而非宣称已经完成的生产系统。",
+          "tags": ["当前研究", "预测建模", "敏感性分析"]
+        },
+        {
+          "index": "02",
+          "period": "2022 - 2025",
+          "organization": "国民核算研究中心",
+          "role": "项目成员 · 数字贸易、投入产出与数据治理",
+          "summary": "整合多区域投入产出表、海关、国际收支与服务贸易数据，并将结果接入 Leontief 投入产出分析。",
+          "problem": "数字贸易测度依赖多类数据来源，其定义、时间覆盖与部门映射并不天然一致。",
+          "data": "中国多区域投入产出表、海关数据、国际收支数据及十二类服务贸易数据。",
+          "metrics": [
+            { "value": "4", "label": "类主要数据来源" },
+            { "value": "12", "label": "类服务贸易数据" },
+            { "value": "MRIO", "label": "多区域网络数据" }
+          ],
+          "method": "统一指标口径、审查异常、使用机器学习方法辅助修正与插补，并开展 Leontief 投入产出分析。",
+          "outcome": "形成可用于部门关联分析的模型输入，同时保留数据来源、处理假设与局限。",
+          "tags": ["数据整合", "缺失数据", "投入产出模型"]
+        },
+        {
+          "index": "03",
+          "period": "2024",
+          "organization": "国家统计局国际数据和信息中心",
+          "role": "经济分析实习生",
+          "summary": "围绕世界银行、IMF 与 OECD 指标建立结构化监测流程，强调来源验证和指标口径一致。",
+          "problem": "国际指标只有在定义一致、来源可追溯的情况下，才能支持简洁可靠的经济监测。",
+          "data": "来自世界银行、IMF 与 OECD 的精选经济指标及其说明资料。",
+          "metrics": [
+            { "value": "3", "label": "个国际数据来源" },
+            { "value": "4", "label": "类核心宏观指标" },
+            { "value": "11", "label": "份参与形成的分析报告" }
+          ],
+          "method": "数据来源验证、指标口径协调、结构化监测与基于证据的简明表达。",
+          "outcome": "形成更加一致的国际统计指标监测与沟通流程。",
+          "tags": ["经济指标", "数据验证", "分析报告"]
+        },
+        {
+          "index": "04",
+          "period": "2023 - 2024",
+          "organization": "香港理工大学",
+          "role": "研究助理 · 离散选择建模",
+          "summary": "设计旅游意愿问卷，使用 R 研究社会互动、参照群体与市场细分机制。",
+          "problem": "旅游偏好并非孤立决策，社会参照群体可能改变市场细分的形成机制。",
+          "data": "1,300 余份调查样本，以及粤港澳大湾区十一座城市的经济与旅游指标。",
+          "metrics": [
+            { "value": "1,300+", "label": "份调查样本" },
+            { "value": "11", "label": "座大湾区城市" },
+            { "value": "2", "label": "层调查与区域数据" }
+          ],
+          "method": "问卷与实验设计、R 多项 Logit 与离散选择建模、平稳性检验、参数比较和情景诊断。",
+          "outcome": "比较不同情景下的模型表现，并将定量结果转化为可解释的市场细分证据。",
+          "tags": ["R", "多项 Logit", "实验设计"]
+        },
+        {
+          "index": "05",
+          "period": "2022 - 2023",
+          "organization": "滴滴出行",
+          "role": "数据分析实习生 · 司机平台",
+          "summary": "使用 SQL 与 Python 整理业务线索数据、建模司机车辆选择意向，并连接分析与反馈流程。",
+          "problem": "司机招募流程需要稳定的线索数据，并需要理解购车、租车、燃油车与电动车选择意向。",
+          "data": "日常业务线索流，以及通过 SQL 提取、清洗和筛选形成的 30,000 余条有效记录。",
+          "metrics": [
+            { "value": "30,000+", "label": "条有效业务记录" },
+            { "value": "每日", "label": "线索数据流程" },
+            { "value": "2", "label": "组配对选择维度" }
+          ],
+          "method": "SQL 数据流程、Python 特征整理，以及用于司机选择意向的线性判别模型。",
+          "outcome": "支持线索运营，并形成对模型失效、样本偏差、用户触达和反馈闭环的实践认识。",
+          "tags": ["SQL", "Python", "业务分析"]
+        }
+      ],
+      "approach": [
+        {
+          "index": "A",
+          "title": "统计严谨性",
+          "text": "我首先关注假设、数据生成机制与不确定性，而不只看最终分数。"
+        },
+        {
+          "index": "B",
+          "title": "证据先于复杂度",
+          "text": "在增加模型复杂度之前，我重视有意义的基线、情景比较与失败分析。"
+        },
+        {
+          "index": "C",
+          "title": "数据来源意识",
+          "text": "我将指标定义、缺失机制、异常值和数据范围变化视为建模决策的一部分。"
+        },
+        {
+          "index": "D",
+          "title": "可复现决策",
+          "text": "我希望将分析转化为他人能够检查、复现并提出质疑的结构化流程。"
+        }
+      ]
+    }
+  }
+}
