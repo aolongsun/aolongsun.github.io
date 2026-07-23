@@ -34,7 +34,6 @@ const ui = {
     approachEvidence: 'Evidence from experience',
     papersKicker: '03 / Papers',
     papersTitle: ['Published work', 'and research in progress.'],
-    papersIntro: 'Published research and ongoing work across environmental systems, applied statistics, and discrete-choice modeling.',
     paperFocus: 'Research focus',
     paperLink: 'View publication',
     contactKicker: '04 / Contact',
@@ -79,7 +78,6 @@ const ui = {
     approachEvidence: '实践证据',
     papersKicker: '03 / 文章',
     papersTitle: ['已发表成果', '与在研工作。'],
-    papersIntro: '研究工作涵盖环境系统、应用统计与离散选择模型，以下分别列示已发表成果与当前在研课题。',
     paperFocus: '研究重点',
     paperLink: '查看文章',
     contactKicker: '04 / 联系',
@@ -555,12 +553,9 @@ function App() {
 
         <section className="section papers-section" id="papers" aria-labelledby="papers-title">
           <div className="shell">
-            <div className="section-heading section-heading-split">
-              <div>
-                <p className="eyebrow">{labels.papersKicker}</p>
-                <SectionTitle id="papers-title" lines={labels.papersTitle} />
-              </div>
-              <p>{labels.papersIntro}</p>
+            <div className="section-heading">
+              <p className="eyebrow">{labels.papersKicker}</p>
+              <SectionTitle id="papers-title" lines={labels.papersTitle} />
             </div>
 
             <div className="papers-list">

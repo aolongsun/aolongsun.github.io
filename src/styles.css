@@ -19,6 +19,9 @@
   --ink: #0a1020;
   --ink-soft: #11182b;
   --paper: #f4f0e8;
+  --approach-paper: #d9e1eb;
+  --papers-navy: #33415f;
+  --contact-navy: #253149;
   --paper-muted: #c8c7c2;
   --cyan: #8edaf1;
   --blue: #1b43c6;
@@ -1193,7 +1196,7 @@ h4 {
 
 .approach-section {
   color: var(--ink);
-  background: var(--paper);
+  background: var(--approach-paper);
 }
 
 .approach-grid {
@@ -1372,7 +1375,7 @@ h4 {
 
 .papers-section {
   color: var(--paper);
-  background: var(--ink);
+  background: var(--papers-navy);
 }
 
 .papers-section .eyebrow,
@@ -1492,7 +1495,8 @@ h4 {
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--blue);
+  border-top: 3px solid var(--blue);
+  background: var(--contact-navy);
 }
 
 .contact-section::before {

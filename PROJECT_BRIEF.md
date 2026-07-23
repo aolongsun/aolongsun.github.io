@@ -81,6 +81,8 @@ Design principles:
 
 - Advanced and distinctive, but not loud or game-like.
 - Dark navy, warm white, and near-black form the base; electric cyan and a controlled red are accents.
+- The full Klein-blue surface is reserved for the Hero. Experience uses warm paper, followed by a gradient-free tonal staircase: Approach uses light blue-gray, Papers uses slate blue, and Contact closes in deep navy. A thin Klein-blue rule connects the final Contact section back to the opening without repeating the Hero field.
+- Section variety comes from controlled shifts in temperature and brightness within the existing palette, not from additional accent colors, gradients, or transitional decoration.
 - Use hard edges, diagonal cuts, thin rules, offset shadows, large typography, and disciplined whitespace.
 - Reserve glass blur primarily for the fixed navigation.
 - Keep body copy calm and highly readable.
