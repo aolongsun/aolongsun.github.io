@@ -29,15 +29,15 @@
   "facts": [
     {
       "value": { "en": "B.S. · M.S. · Ph.D.", "zh": "本科 · 硕士 · 博士" },
-      "label": { "en": "statistics pathway · Ph.D. in progress", "zh": "统计学培养路径 · 博士在读" }
+      "label": { "en": "statistics pathway · Ph.D. in progress", "zh": "统计学训练 · 博士在读" }
     },
     {
       "value": { "en": "BNU → VT", "zh": "北京师大 → VT" },
-      "label": { "en": "training across China and the United States", "zh": "横跨中国与美国的学习经历" }
+      "label": { "en": "training across China and the United States", "zh": "中美两地的统计学教育经历" }
     },
     {
       "value": { "en": "Research ↔ Practice", "zh": "研究 ↔ 实践" },
-      "label": { "en": "academic, public-sector, and industry experience", "zh": "学术、公共数据与行业经验" }
+      "label": { "en": "academic, public-sector, and industry experience", "zh": "学术研究、公共部门与应用实践" }
     }
   ],
   "locales": {
@@ -162,37 +162,108 @@
           "tags": ["SQL", "Python", "Operational Analytics"]
         }
       ],
+      "papers": [
+        {
+          "status": "Published · 2023",
+          "title": "Structural Characteristics of the Household Carbon Footprint in an Aging Society",
+          "authors": "Ying Long · Jiahao Feng · Aolong Sun · Rui Wang · Yafei Wang",
+          "venue": "Sustainability · 15(17) · 12825 · DOI 10.3390/su151712825",
+          "focus": "Examines household carbon footprints in an aging society by connecting age-specific consumption patterns with environmentally extended input-output life-cycle assessment and structural path analysis.",
+          "url": "https://www.mdpi.com/2071-1050/15/17/12825"
+        },
+        {
+          "status": "Published · 2026",
+          "title": "A Novel Integrated Approach for Spatial Analysis of the Coupling Relationship and Its Driving Mechanisms of the Water–Energy–Food–Ecology–Land Nexus in the Yellow River Basin of China",
+          "authors": "Xianzhi Liu · Ruining Yang · Xinyue Zhang · Aolong Sun · Fei Zhang · Chunyan Li · Junming Li",
+          "venue": "Water · 18(13) · 1577 · DOI 10.3390/w18131577",
+          "focus": "Studies the spatial and temporal coordination, constraints, and driving mechanisms of the water–energy–food–ecology–land nexus in China’s Yellow River Basin.",
+          "url": "https://www.mdpi.com/2073-4441/18/13/1577"
+        },
+        {
+          "status": "Research in Progress",
+          "title": "Tourism Market Segment Formation through Individual Social Interactions: A Discrete Choice Perspective",
+          "focus": "Uses a discrete-choice perspective to investigate how social interactions and reference groups shape tourism preferences and the formation of market segments."
+        }
+      ],
       "approach": [
         {
           "index": "A",
-          "title": "Statistical Rigor",
-          "text": "I start with assumptions, data-generating mechanisms, and uncertainty - not only the final score."
+          "title": "Rigor Through Testing",
+          "text": "Rigor comes from testing assumptions, comparisons, and uncertainty—not from model complexity alone.",
+          "evidence": [
+            {
+              "source": "The Hong Kong Polytechnic University",
+              "signal": "1,300+ responses · 11 cities",
+              "detail": "Questionnaire and experimental design led into multinomial Logit modeling, parameter comparisons, and scenario diagnostics."
+            },
+            {
+              "source": "Virginia Tech",
+              "signal": "Simulation · sensitivity · evaluation",
+              "detail": "Current research training combines building-climate simulation with sensitivity analysis and transparent model evaluation."
+            }
+          ]
         },
         {
           "index": "B",
-          "title": "Evidence Before Complexity",
-          "text": "I value meaningful baselines, scenario comparisons, and failure analysis before adding model complexity."
+          "title": "Compare Before Complexity",
+          "text": "Start with interpretable comparisons, then ask whether added complexity produces a meaningful gain.",
+          "evidence": [
+            {
+              "source": "The Hong Kong Polytechnic University",
+              "signal": "Scenario comparison · parameter diagnosis",
+              "detail": "Model behavior was compared across scenarios before quantitative results were interpreted as market-segmentation evidence."
+            },
+            {
+              "source": "DiDi",
+              "signal": "30,000+ records · feedback loop",
+              "detail": "Choice modeling was considered alongside model failure, sample bias, user outreach, and operational data feedback."
+            }
+          ]
         },
         {
           "index": "C",
-          "title": "Data Provenance",
-          "text": "I treat source definitions, missingness, anomalies, and changing data scopes as modeling decisions."
+          "title": "Trace the Data",
+          "text": "Definitions, missingness, anomalies, and source changes are part of the analysis—not cleanup details.",
+          "evidence": [
+            {
+              "source": "National Accounting Research Center",
+              "signal": "4 source families · 12 categories",
+              "detail": "Multi-regional input-output, customs, balance-of-payments, and services data required definition reconciliation and anomaly review."
+            },
+            {
+              "source": "National Bureau of Statistics of China",
+              "signal": "World Bank · IMF · OECD",
+              "detail": "International indicators were checked against source documentation and aligned definitions before entering the monitoring workflow."
+            }
+          ]
         },
         {
           "index": "D",
-          "title": "Reproducible Decisions",
-          "text": "I aim to turn analysis into structured workflows that another person can inspect, rerun, and challenge."
+          "title": "Make the Work Inspectable",
+          "text": "An analysis should leave a clear path that another person can inspect, rerun, and challenge.",
+          "evidence": [
+            {
+              "source": "DiDi",
+              "signal": "Daily SQL workflow · 30,000+ records",
+              "detail": "Operational lead data moved through repeatable extraction, cleaning, filtering, and feedback steps."
+            },
+            {
+              "source": "National Bureau of Statistics of China",
+              "signal": "3 sources · 11 reports",
+              "detail": "A structured monitoring process connected verified indicator definitions with concise analytical reporting."
+            }
+          ]
         }
       ]
     },
     "zh": {
-      "metaTitle": "孙奥龙｜统计、建模与科学证据",
-      "metaDescription": "孙奥龙是弗吉尼亚理工统计学博士生，关注统计建模、数据密集型研究与机器学习的交叉。",
+      "metaTitle": "孙奥龙｜统计建模与数据研究",
+      "metaDescription": "孙奥龙现为弗吉尼亚理工大学统计学博士生，研究与实践涵盖统计建模、复杂数据分析和机器学习评估。",
       "name": "孙奥龙",
       "role": "统计学博士生",
-      "eyebrow": "统计 · 建模 · 机器学习",
-      "headline": "将复杂数据转化为严谨模型、可解释证据与可复现决策。",
-      "shortBio": "我目前在弗吉尼亚理工攻读统计学博士，本科和硕士均接受过北京师范大学统计学训练。我的经历覆盖统计推断、实验设计、多源数据治理与应用建模。目前，我正将科学评估习惯与动手实现相结合，逐步构建可靠的机器学习实践能力。",
+      "eyebrow": "统计建模 · 数据分析 · 机器学习",
+      "headline": "以严谨模型分析复杂数据，形成可解释、可检验、可复现的结论。",
+      "shortBio": "我现于弗吉尼亚理工大学攻读统计学博士，本科与硕士阶段就读于北京师范大学。研究与实践涵盖统计推断、实验设计、多源数据治理及应用建模。现阶段，我侧重将科学评估方法用于机器学习实践，同时关注模型比较的合理性、结论的可靠性与分析过程的可复现性。",
       "location": "美国弗吉尼亚州黑堡",
       "education": [
         {
@@ -201,10 +272,10 @@
           "institution": "弗吉尼亚理工大学",
           "officialUrl": "https://www.stat.vt.edu/people/gradstudent.html#:~:text=Aolong%20Sun",
           "details": [
-            "统计推断、线性模型、回归与方差分析",
-            "实验设计、分类数据、概率与分布理论",
-            "建筑—气候联合仿真、预测建模与敏感性分析",
-            "AI 与机器学习模型的科学评估"
+            "统计推断、线性模型、回归分析与方差分析",
+            "实验设计、分类数据分析、概率论与分布理论",
+            "建筑与气候仿真、预测建模及敏感性分析",
+            "AI 与机器学习模型的科学评估方法"
           ]
         },
         {
@@ -212,10 +283,10 @@
           "degree": "统计学本科 · 经济统计学硕士",
           "institution": "北京师范大学",
           "details": [
-            "经济统计、计量经济与多元统计分析",
-            "投入产出核算、数字贸易与居民消费碳足迹",
-            "离散选择模型与应用研究设计",
-            "机器学习基础与时间序列分析"
+            "经济统计、计量经济学与多元统计分析",
+            "投入产出核算、数字贸易和居民消费碳足迹研究",
+            "离散选择模型与实证研究设计",
+            "机器学习基础和时间序列分析"
           ]
         }
       ],
@@ -224,34 +295,34 @@
           "index": "01",
           "period": "2025 - 至今",
           "organization": "弗吉尼亚理工大学",
-          "role": "当前研究训练 · 建筑、气候与预测建模",
-          "summary": "将建筑—气候联合仿真与预测建模、敏感性分析和 AI 模型的科学评估相连接。",
-          "problem": "理解建筑与气候输入如何影响仿真和预测模型表现，同时避免对正在进行的研究作出超出证据的结论。",
-          "data": "当前研究训练中形成的建筑—气候仿真输出、模型输入与评估结果。",
+          "role": "在研课题 · 建筑、气候与预测建模",
+          "summary": "围绕建筑与气候仿真开展预测建模、敏感性分析及 AI 模型评估。",
+          "problem": "考察建筑参数和气候条件如何影响仿真结果与预测表现，同时严格区分阶段性发现和已经得到验证的结论。",
+          "data": "研究过程中产生的建筑与气候变量、仿真输出及模型评估结果。",
           "metrics": [
             { "value": "输入", "label": "建筑与气候变量" },
-            { "value": "仿真", "label": "联合仿真输出" },
+            { "value": "仿真", "label": "建筑与气候仿真输出" },
             { "value": "评估", "label": "模型评估结果" }
           ],
-          "method": "基于仿真的分析、预测建模、敏感性分析与结构化模型评估。",
-          "outcome": "逐步形成关注可复现比较、不确定性与透明评估的研究流程，而非宣称已经完成的生产系统。",
-          "tags": ["当前研究", "预测建模", "敏感性分析"]
+          "method": "结合仿真分析、预测建模、敏感性分析和结构化模型评估。",
+          "outcome": "该工作仍处于研究阶段，当前重点是建立支持可复现比较、不确定性分析与透明评估的研究流程。",
+          "tags": ["在研课题", "预测建模", "敏感性分析"]
         },
         {
           "index": "02",
           "period": "2022 - 2025",
           "organization": "国民核算研究中心",
           "role": "项目成员 · 数字贸易、投入产出与数据治理",
-          "summary": "整合多区域投入产出表、海关、国际收支与服务贸易数据，并将结果接入 Leontief 投入产出分析。",
-          "problem": "数字贸易测度依赖多类数据来源，其定义、时间覆盖与部门映射并不天然一致。",
+          "summary": "整合多区域投入产出表、海关、国际收支和服务贸易数据，为 Leontief 投入产出分析准备数据。",
+          "problem": "数字贸易测度依赖多类来源，但不同数据在定义、时间范围和部门映射上并不一致。",
           "data": "中国多区域投入产出表、海关数据、国际收支数据及十二类服务贸易数据。",
           "metrics": [
-            { "value": "4", "label": "类主要数据来源" },
+            { "value": "4", "label": "类核心数据来源" },
             { "value": "12", "label": "类服务贸易数据" },
             { "value": "MRIO", "label": "多区域网络数据" }
           ],
-          "method": "统一指标口径、审查异常、使用机器学习方法辅助修正与插补，并开展 Leontief 投入产出分析。",
-          "outcome": "形成可用于部门关联分析的模型输入，同时保留数据来源、处理假设与局限。",
+          "method": "协调指标口径、检查异常，使用机器学习方法辅助修正和插补，再开展 Leontief 投入产出分析。",
+          "outcome": "整理出可用于部门关联分析的模型输入，并完整保留数据来源、处理假设和已知局限。",
           "tags": ["数据整合", "缺失数据", "投入产出模型"]
         },
         {
@@ -259,33 +330,33 @@
           "period": "2024",
           "organization": "国家统计局国际数据和信息中心",
           "role": "经济分析实习生",
-          "summary": "围绕世界银行、IMF 与 OECD 指标建立结构化监测流程，强调来源验证和指标口径一致。",
-          "problem": "国际指标只有在定义一致、来源可追溯的情况下，才能支持简洁可靠的经济监测。",
+          "summary": "围绕世界银行、IMF 和 OECD 的数据建立监测流程，重点核对来源与指标口径。",
+          "problem": "跨国指标只有做到定义一致、来源可追溯，才能用于可靠的经济监测和判断。",
           "data": "来自世界银行、IMF 与 OECD 的精选经济指标及其说明资料。",
           "metrics": [
-            { "value": "3", "label": "个国际数据来源" },
+            { "value": "3", "label": "类国际数据来源" },
             { "value": "4", "label": "类核心宏观指标" },
-            { "value": "11", "label": "份参与形成的分析报告" }
+            { "value": "11", "label": "份参与撰写的分析报告" }
           ],
-          "method": "数据来源验证、指标口径协调、结构化监测与基于证据的简明表达。",
-          "outcome": "形成更加一致的国际统计指标监测与沟通流程。",
+          "method": "核验数据来源、协调指标口径，并以固定框架开展监测和简明分析。",
+          "outcome": "形成口径一致、来源清晰的国际统计指标监测与分析流程。",
           "tags": ["经济指标", "数据验证", "分析报告"]
         },
         {
           "index": "04",
           "period": "2023 - 2024",
           "organization": "香港理工大学",
-          "role": "研究助理 · 离散选择建模",
-          "summary": "设计旅游意愿问卷，使用 R 研究社会互动、参照群体与市场细分机制。",
-          "problem": "旅游偏好并非孤立决策，社会参照群体可能改变市场细分的形成机制。",
-          "data": "1,300 余份调查样本，以及粤港澳大湾区十一座城市的经济与旅游指标。",
+          "role": "研究助理 · 离散选择模型",
+          "summary": "设计旅游意愿问卷，并使用 R 分析社会互动、参照群体和市场细分。",
+          "problem": "个人的旅游选择会受到社会关系影响，参照群体可能进一步改变市场细分的形成方式。",
+          "data": "1,300 余份问卷样本，以及粤港澳大湾区 11 座城市的经济和旅游指标。",
           "metrics": [
             { "value": "1,300+", "label": "份调查样本" },
             { "value": "11", "label": "座大湾区城市" },
-            { "value": "2", "label": "层调查与区域数据" }
+            { "value": "2", "label": "类调查与区域数据" }
           ],
-          "method": "问卷与实验设计、R 多项 Logit 与离散选择建模、平稳性检验、参数比较和情景诊断。",
-          "outcome": "比较不同情景下的模型表现，并将定量结果转化为可解释的市场细分证据。",
+          "method": "开展问卷和实验设计，使用 R 建立多项 Logit 与离散选择模型，并完成平稳性检验、参数比较和情景诊断。",
+          "outcome": "通过比较不同情景下的模型表现，解释社会互动如何影响旅游偏好和市场细分。",
           "tags": ["R", "多项 Logit", "实验设计"]
         },
         {
@@ -293,39 +364,110 @@
           "period": "2022 - 2023",
           "organization": "滴滴出行",
           "role": "数据分析实习生 · 司机平台",
-          "summary": "使用 SQL 与 Python 整理业务线索数据、建模司机车辆选择意向，并连接分析与反馈流程。",
-          "problem": "司机招募流程需要稳定的线索数据，并需要理解购车、租车、燃油车与电动车选择意向。",
-          "data": "日常业务线索流，以及通过 SQL 提取、清洗和筛选形成的 30,000 余条有效记录。",
+          "summary": "使用 SQL 和 Python 整理业务线索，分析司机的车辆选择意向，并参与后续触达和数据回流。",
+          "problem": "司机招募既需要稳定的线索数据，也需要理解司机在购车与租车、燃油车与电动车之间的选择。",
+          "data": "日常业务线索，以及通过 SQL 提取、清洗和筛选得到的 30,000 余条有效记录。",
           "metrics": [
             { "value": "30,000+", "label": "条有效业务记录" },
-            { "value": "每日", "label": "线索数据流程" },
+            { "value": "日度", "label": "线索数据流程" },
             { "value": "2", "label": "组配对选择维度" }
           ],
-          "method": "SQL 数据流程、Python 特征整理，以及用于司机选择意向的线性判别模型。",
-          "outcome": "支持线索运营，并形成对模型失效、样本偏差、用户触达和反馈闭环的实践认识。",
+          "method": "使用 SQL 建立数据流程，以 Python 整理特征，并用线性判别模型分析司机的选择意向。",
+          "outcome": "分析结果用于支持线索运营，同时检视模型失效、样本偏差、用户触达与反馈回流对实际应用的影响。",
           "tags": ["SQL", "Python", "业务分析"]
+        }
+      ],
+      "papers": [
+        {
+          "status": "已发表 · 2023",
+          "title": "Structural Characteristics of the Household Carbon Footprint in an Aging Society",
+          "authors": "Ying Long · Jiahao Feng · Aolong Sun · Rui Wang · Yafei Wang",
+          "venue": "Sustainability · 15(17) · 12825 · DOI 10.3390/su151712825",
+          "focus": "结合不同年龄群体的消费特征、环境扩展投入产出生命周期评价与结构路径分析，考察老龄化背景下的家庭碳足迹及其关键排放路径。",
+          "url": "https://www.mdpi.com/2071-1050/15/17/12825"
+        },
+        {
+          "status": "已发表 · 2026",
+          "title": "A Novel Integrated Approach for Spatial Analysis of the Coupling Relationship and Its Driving Mechanisms of the Water–Energy–Food–Ecology–Land Nexus in the Yellow River Basin of China",
+          "authors": "Xianzhi Liu · Ruining Yang · Xinyue Zhang · Aolong Sun · Fei Zhang · Chunyan Li · Junming Li",
+          "venue": "Water · 18(13) · 1577 · DOI 10.3390/w18131577",
+          "focus": "分析黄河流域水—能源—粮食—生态—土地系统的时空协调关系、主要制约因素及其驱动机制。",
+          "url": "https://www.mdpi.com/2073-4441/18/13/1577"
+        },
+        {
+          "status": "在研项目",
+          "title": "Tourism Market Segment Formation through Individual Social Interactions: A Discrete Choice Perspective",
+          "focus": "从离散选择视角考察社会互动与参照群体如何影响旅游偏好及市场细分的形成。"
         }
       ],
       "approach": [
         {
           "index": "A",
-          "title": "统计严谨性",
-          "text": "我首先关注假设、数据生成机制与不确定性，而不只看最终分数。"
+          "title": "统计假设与模型检验",
+          "text": "以系统检验保证分析严谨性，重点考察模型假设、比较基准与不确定性，而非单纯追求复杂度。",
+          "evidence": [
+            {
+              "source": "香港理工大学",
+              "signal": "1,300+ 份样本 · 11 座城市",
+              "detail": "基于问卷与实验设计建立多项 Logit 模型，并通过参数比较和情景诊断检验模型表现。"
+            },
+            {
+              "source": "弗吉尼亚理工大学",
+              "signal": "仿真 · 敏感性分析 · 评估",
+              "detail": "在建筑与气候研究中结合仿真、敏感性分析和模型评估，并明确区分阶段性探索与已验证结论。"
+            }
+          ]
         },
         {
           "index": "B",
-          "title": "证据先于复杂度",
-          "text": "在增加模型复杂度之前，我重视有意义的基线、情景比较与失败分析。"
+          "title": "比较基准与复杂度控制",
+          "text": "先建立可解释的比较基准，再评估复杂方法能否带来具有实际意义的增益。",
+          "evidence": [
+            {
+              "source": "香港理工大学",
+              "signal": "情景比较 · 参数诊断",
+              "detail": "比较不同情景下的参数与模型表现，再据此解释市场细分结果。"
+            },
+            {
+              "source": "滴滴出行",
+              "signal": "30,000+ 条记录 · 反馈回流",
+              "detail": "除判别结果外，同时考察模型失效、样本偏差、用户触达和数据回流所反映的实际限制。"
+            }
+          ]
         },
         {
           "index": "C",
-          "title": "数据来源意识",
-          "text": "我将指标定义、缺失机制、异常值和数据范围变化视为建模决策的一部分。"
+          "title": "数据溯源与口径核验",
+          "text": "将数据来源、统计口径、缺失与异常等质量问题纳入建模决策。",
+          "evidence": [
+            {
+              "source": "国民核算研究中心",
+              "signal": "4 类来源 · 12 类服务贸易数据",
+              "detail": "整合投入产出表、海关、国际收支与服务贸易数据，并逐项统一统计定义、核查异常。"
+            },
+            {
+              "source": "国家统计局国际数据和信息中心",
+              "signal": "世界银行 · IMF · OECD",
+              "detail": "国际指标纳入监测流程前，先核验来源文件、指标定义与统计口径。"
+            }
+          ]
         },
         {
           "index": "D",
-          "title": "可复现决策",
-          "text": "我希望将分析转化为他人能够检查、复现并提出质疑的结构化流程。"
+          "title": "可复核的分析流程",
+          "text": "保留清晰、可追溯的分析路径，使结果能够被复核、复现与质询。",
+          "evidence": [
+            {
+              "source": "滴滴出行",
+              "signal": "日常 SQL 流程 · 30,000+ 条记录",
+              "detail": "通过稳定的数据提取、清洗、筛选与回流步骤，形成可重复执行的日常业务流程。"
+            },
+            {
+              "source": "国家统计局国际数据和信息中心",
+              "signal": "3 类来源 · 11 份报告",
+              "detail": "以固定监测框架衔接经核验的指标口径与结构化分析报告。"
+            }
+          ]
         }
       ]
     }

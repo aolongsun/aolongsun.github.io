@@ -36,11 +36,13 @@ Primary audiences, in order:
 
 - Full-viewport hero with a restrained motion background, identity, positioning statement, and two calls to action.
 - Fixed glass-effect navigation with English/Chinese switching.
+- The navigation wordmark pairs the unchanged geometric `AS` monogram with a handwritten full-name signature: locally hosted Kaushan Script for English and a three-glyph Ma Shan Zheng subset for Chinese. The two elements use contrasting typographic roles rather than repeating the same brush treatment.
 - Two-column hero with an equal-height profile card on the left and identity statement on the right. Both columns share one top baseline; public email and GitHub sit beneath the right-side actions. Hero facts summarize the overall academic and professional path rather than one experience.
 - On desktop, both Hero columns and their internal content bands use language-independent geometry so switching between English and Chinese does not move surrounding elements. The Chinese name remains on one line. Mobile layouts return to natural content flow.
-- Background section with scannable education points and a hover/focus experience browser organized around problem, data, method, and outcome. The evidence panel aligns vertically with the active experience item, and its Data cell contains a compact three-row evidence table.
+- One unified Experience section containing scannable education points and a hover/focus experience browser organized around problem, data, method, and outcome. The evidence panel aligns vertically with the active experience item, and its Data cell contains a compact three-row evidence table.
 - Education entries reserve a separate left metadata rail for dates and proportion-preserving school identifiers, leaving the degree column at full width. Virginia Tech uses its complete university lockup; Beijing Normal University uses the user-selected complete blue lockup containing the seal, calligraphic Chinese name, and English name. Multi-degree entries separate the bachelor's and master's degrees onto distinct lines.
-- Scientific Approach section describing evidence-backed working principles rather than subjective skill ratings.
+- Scientific Approach section describing evidence-backed working principles rather than subjective skill ratings. Its existing two-by-two desktop grid, card geometry, typography, borders, colors, spacing, and section height remain unchanged. Hovering or focusing a card reveals a same-row evidence panel over the opposite column with its top edge aligned to the trigger; touch layouts expand the evidence within the active card.
+- Papers section after Scientific Approach, presenting verified bibliographic information and concise research focus for two published papers plus one clearly labeled research-in-progress item. The private proposal source is neither linked nor copied into public assets.
 - Compact closing contact section with public email and GitHub.
 
 ## 6. Out of Scope for Version 0.1
@@ -68,6 +70,8 @@ When visibility is uncertain, treat the information as private.
 - Remember the visitor's explicit language choice on the device.
 - Every visible navigation label, heading, button, description, image alternative, and metadata-relevant phrase should have both language versions.
 - Translation should preserve meaning and professional tone rather than mirror sentence structure word for word.
+- Major section headings use explicit, semantically chosen line breaks. A line must not split a Chinese phrase or leave an isolated character.
+- Public email addresses and web addresses remain complete on one line across supported browsers and must not be truncated with ellipses.
 
 ## 9. Visual Direction
 
@@ -91,6 +95,7 @@ Design principles:
 - Buttons and links have coordinated hover and keyboard-focus feedback.
 - Motion must not cause layout shift.
 - Touch users must not depend on hover to understand or activate controls.
+- Approach evidence panels are overlays on desktop and must not reflow, resize, or restyle the underlying two-by-two card framework.
 - Hero motion pauses or becomes static when `prefers-reduced-motion` is enabled.
 
 ## 11. Layout and Responsive Requirements
@@ -126,7 +131,7 @@ Design principles:
 
 - The site starts locally and creates a successful production build.
 - English appears on a first visit and the language control switches the complete interface to Chinese.
-- Hero, background and experience, scientific approach, and contact sections are complete.
+- Hero, unified experience, scientific approach, papers, and contact sections are complete.
 - Fixed navigation, hover/focus interactions, and reduced-motion behavior work.
 - Public content is accurate, bilingual, and contains no phone number or private source material.
 - The design is recognizably custom while maintaining recruiter-friendly scanning and readability.
@@ -148,5 +153,5 @@ Design principles:
 - Final licensed/original hero video and poster treatment.
 - Final experience ordering after public AI/ML repositories exist.
 - Whether to add dedicated project-detail routes.
-- Whether to add LinkedIn, publications, a resume download, or a blog.
+- Whether to add LinkedIn, a resume download, or a blog.
 - Whether to purchase and configure a custom domain in a later version.

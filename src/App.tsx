@@ -7,16 +7,16 @@ const ui = {
   en: {
     skip: 'Skip to content',
     nav: [
-      ['Background', 'background'],
       ['Experience', 'experience'],
       ['Approach', 'approach'],
+      ['Papers', 'papers'],
       ['Contact', 'contact'],
     ],
     viewWork: 'View experience',
     contactMe: 'Contact me',
     scroll: 'Scroll to explore',
-    aboutKicker: '01 / Background',
-    aboutTitle: 'A statistical foundation for applied questions.',
+    aboutKicker: '01 / Experience',
+    aboutTitle: ['A statistical foundation', 'for applied questions.'],
     education: 'Education',
     experience: 'Selected experience',
     officialListing: 'Official department listing',
@@ -28,11 +28,17 @@ const ui = {
       outcome: 'Outcome',
     },
     approachKicker: '02 / Scientific Approach',
-    approachTitle: 'How I turn questions into evidence.',
+    approachTitle: ['Evidence-backed', 'analytical practice.'],
     approachIntro:
-      'These are working principles grounded in my statistical training and applied experience - not self-assigned proficiency scores.',
-    contactKicker: '03 / Contact',
-    contactTitle: 'Let’s make complex questions clearer.',
+      'Each principle is tied to work I have actually done. Hover, focus, or tap a card to see the experience behind it.',
+    approachEvidence: 'Evidence from experience',
+    papersKicker: '03 / Papers',
+    papersTitle: ['Published work', 'and research in progress.'],
+    papersIntro: 'Published research and ongoing work across environmental systems, applied statistics, and discrete-choice modeling.',
+    paperFocus: 'Research focus',
+    paperLink: 'View publication',
+    contactKicker: '04 / Contact',
+    contactTitle: ['Let’s make complex', 'questions clearer.'],
     contactBody:
       'I welcome conversations about statistical modeling, applied machine learning, experimentation, and data-intensive research.',
     email: 'Send an email',
@@ -46,42 +52,60 @@ const ui = {
   zh: {
     skip: '跳转至正文',
     nav: [
-      ['个人背景', 'background'],
-      ['精选经历', 'experience'],
-      ['研究方法', 'approach'],
-      ['联系方式', 'contact'],
+      ['经历', 'experience'],
+      ['方法', 'approach'],
+      ['文章', 'papers'],
+      ['联系', 'contact'],
     ],
-    viewWork: '查看精选经历',
+    viewWork: '查看经历',
     contactMe: '联系我',
-    scroll: '向下探索',
-    aboutKicker: '01 / 个人背景',
-    aboutTitle: '以统计训练回应真实问题。',
+    scroll: '向下浏览',
+    aboutKicker: '01 / 经历',
+    aboutTitle: ['以统计学训练为基础，', '研究真实世界问题。'],
     education: '教育经历',
     experience: '精选经历',
     officialListing: '统计系官方学生目录',
-    experienceHint: '将鼠标悬浮在经历上，即可查看对应的详细证据。',
+    experienceHint: '将鼠标移至任一经历，即可查看相关问题、数据、方法与结论。',
     labels: {
       problem: '问题',
       data: '数据',
       method: '方法',
-      outcome: '结果',
+      outcome: '结论',
     },
-    approachKicker: '02 / 科学方法',
-    approachTitle: '我如何将问题转化为证据。',
+    approachKicker: '02 / 分析方法',
+    approachTitle: ['以实证检验支撑', '分析判断。'],
     approachIntro:
-      '这些原则来自统计训练与应用经历，而不是自我打分或抽象的能力标签。',
-    contactKicker: '03 / 联系方式',
-    contactTitle: '让复杂问题变得更清晰。',
-    contactBody: '欢迎与我交流统计建模、应用机器学习、实验设计与数据密集型研究。',
+      '每项原则均有具体研究或实践作为依据。将鼠标移至卡片，或通过键盘聚焦与触屏点击，即可查看相应证据。',
+    approachEvidence: '实践证据',
+    papersKicker: '03 / 文章',
+    papersTitle: ['已发表成果', '与在研工作。'],
+    papersIntro: '研究工作涵盖环境系统、应用统计与离散选择模型，以下分别列示已发表成果与当前在研课题。',
+    paperFocus: '研究重点',
+    paperLink: '查看文章',
+    contactKicker: '04 / 联系',
+    contactTitle: ['围绕复杂问题，', '开展专业交流与合作。'],
+    contactBody: '欢迎就统计建模、机器学习评估、实验设计与复杂数据分析等议题进行交流。',
     email: '发送邮件',
     github: '查看 GitHub',
     backTop: '返回顶部',
-    footer: '持续记录工作、证据与学习的个人空间。',
+    footer: '持续记录研究实践、分析依据与学习进展。',
     languageLabel: '语言',
     openMenu: '打开导航菜单',
     closeMenu: '关闭导航菜单',
   },
 } as const
+
+function SectionTitle({ id, lines }: { id: string; lines: readonly string[] }) {
+  return (
+    <h2 id={id} aria-label={lines.join(' ')}>
+      {lines.map((line) => (
+        <span className="section-title-line" aria-hidden="true" key={line}>
+          {line}
+        </span>
+      ))}
+    </h2>
+  )
+}
 
 function App() {
   const [locale, setLocale] = useState<Locale>(() => {
@@ -91,7 +115,10 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [previewExperience, setPreviewExperience] = useState<number | null>(null)
   const [experienceDetailTop, setExperienceDetailTop] = useState(0)
+  const [previewApproach, setPreviewApproach] = useState<number | null>(null)
+  const [approachDetailGeometry, setApproachDetailGeometry] = useState({ top: 0, left: 0, width: 0, height: 0 })
   const backgroundLayoutRef = useRef<HTMLDivElement>(null)
+  const approachGridRef = useRef<HTMLDivElement>(null)
 
   const copy = profile.locales[locale]
   const labels = ui[locale]
@@ -112,6 +139,7 @@ function App() {
 
   const navItems = useMemo(() => labels.nav, [labels.nav])
   const experience = previewExperience === null ? null : copy.experience[previewExperience]
+  const approach = previewApproach === null ? null : copy.approach[previewApproach]
 
   const showExperience = (index: number, element: HTMLButtonElement) => {
     const layout = backgroundLayoutRef.current
@@ -121,6 +149,37 @@ function App() {
       setExperienceDetailTop(Math.max(0, itemBounds.top - layoutBounds.top))
     }
     setPreviewExperience(index)
+  }
+
+  const showApproach = (index: number, element: HTMLElement) => {
+    if (!window.matchMedia('(min-width: 821px)').matches) {
+      return
+    }
+    const grid = approachGridRef.current
+    if (grid) {
+      const gridBounds = grid.getBoundingClientRect()
+      const itemBounds = element.getBoundingClientRect()
+      const left = index % 2 === 0 ? itemBounds.right - gridBounds.left - grid.clientLeft : 0
+      setApproachDetailGeometry({
+        top: itemBounds.top - gridBounds.top - grid.clientTop,
+        left,
+        width: itemBounds.width,
+        height: itemBounds.height,
+      })
+    }
+    setPreviewApproach(index)
+  }
+
+  const hideApproach = () => {
+    if (window.matchMedia('(min-width: 821px)').matches) {
+      setPreviewApproach(null)
+    }
+  }
+
+  const toggleApproach = (index: number) => {
+    if (window.matchMedia('(max-width: 820px)').matches) {
+      setPreviewApproach((current) => (current === index ? null : index))
+    }
   }
 
   const chooseLanguage = (next: Locale) => {
@@ -138,7 +197,7 @@ function App() {
         <nav className="nav-shell" aria-label={locale === 'en' ? 'Primary navigation' : '主导航'}>
           <a className="wordmark" href="#top" aria-label={`${copy.name} — ${labels.backTop}`}>
             <span className="wordmark-mark">AS</span>
-            <span className="wordmark-name">{copy.name}</span>
+            <span className={`wordmark-name ${locale === 'zh' ? 'is-zh' : 'is-en'}`}>{copy.name}</span>
           </a>
 
           <button
@@ -271,19 +330,19 @@ function App() {
           </div>
 
           <div className="hero-footer shell">
-            <span className="hero-counter">00 — 03</span>
-            <a href="#background" className="scroll-cue">
+            <span className="hero-counter">00 — 04</span>
+            <a href="#experience" className="scroll-cue">
               <span>{labels.scroll}</span>
               <span aria-hidden="true">↓</span>
             </a>
           </div>
         </section>
 
-        <section className="section background-section" id="background" aria-labelledby="background-title">
+        <section className="section background-section" id="experience" aria-labelledby="experience-title">
           <div className="shell">
             <div className="section-heading">
               <p className="eyebrow">{labels.aboutKicker}</p>
-              <h2 id="background-title">{labels.aboutTitle}</h2>
+              <SectionTitle id="experience-title" lines={labels.aboutTitle} />
             </div>
 
             <div className="background-layout" ref={backgroundLayoutRef}>
@@ -376,7 +435,7 @@ function App() {
                 </article>
               )}
 
-              <div className="experience-selector" id="experience">
+              <div className="experience-selector">
                 <h3 className="subsection-title">{labels.experience}</h3>
                 <p className="experience-hint">{labels.experienceHint}</p>
                 <div className="experience-list">
@@ -411,19 +470,122 @@ function App() {
             <div className="section-heading section-heading-split">
               <div>
                 <p className="eyebrow">{labels.approachKicker}</p>
-                <h2 id="approach-title">{labels.approachTitle}</h2>
+                <SectionTitle id="approach-title" lines={labels.approachTitle} />
               </div>
               <p>{labels.approachIntro}</p>
             </div>
 
-            <div className="approach-grid">
-              {copy.approach.map((item) => (
-                <article className="approach-card" key={item.index}>
+            <div className="approach-grid" ref={approachGridRef}>
+              {copy.approach.map((item, index) => (
+                <article
+                  className={`approach-card ${previewApproach === index ? 'is-active' : ''}`}
+                  key={item.index}
+                  tabIndex={0}
+                  role="button"
+                  aria-expanded={previewApproach === index}
+                  onMouseEnter={(event) => showApproach(index, event.currentTarget)}
+                  onMouseLeave={hideApproach}
+                  onFocus={(event) => showApproach(index, event.currentTarget)}
+                  onBlur={hideApproach}
+                  onClick={() => toggleApproach(index)}
+                  onKeyDown={(event) => {
+                    if ((event.key === 'Enter' || event.key === ' ') && window.matchMedia('(max-width: 820px)').matches) {
+                      event.preventDefault()
+                      toggleApproach(index)
+                    }
+                  }}
+                >
                   <span className="approach-index">{item.index}</span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
                   </div>
+                  {previewApproach === index && (
+                    <div className="approach-evidence-inline">
+                      <p className="approach-evidence-label">{labels.approachEvidence}</p>
+                      {item.evidence.map((evidence) => (
+                        <div className="approach-evidence-item" key={evidence.source}>
+                          <div>
+                            <strong>{evidence.source}</strong>
+                            <span>{evidence.signal}</span>
+                          </div>
+                          <p>{evidence.detail}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </article>
+              ))}
+              {approach && (
+                <aside
+                  className="approach-evidence-panel"
+                  aria-live="polite"
+                  style={
+                    {
+                      '--approach-detail-top': `${approachDetailGeometry.top}px`,
+                      '--approach-detail-left': `${approachDetailGeometry.left}px`,
+                      '--approach-detail-width': `${approachDetailGeometry.width}px`,
+                      '--approach-detail-height': `${approachDetailGeometry.height}px`,
+                    } as React.CSSProperties
+                  }
+                >
+                  <header>
+                    <span>{approach.index}</span>
+                    <div>
+                      <p>{labels.approachEvidence}</p>
+                      <h3>{approach.title}</h3>
+                    </div>
+                  </header>
+                  <div className="approach-evidence-list">
+                    {approach.evidence.map((evidence) => (
+                      <article className="approach-evidence-item" key={evidence.source}>
+                        <div>
+                          <strong>{evidence.source}</strong>
+                          <span>{evidence.signal}</span>
+                        </div>
+                        <p>{evidence.detail}</p>
+                      </article>
+                    ))}
+                  </div>
+                </aside>
+              )}
+            </div>
+          </div>
+        </section>
+
+        <section className="section papers-section" id="papers" aria-labelledby="papers-title">
+          <div className="shell">
+            <div className="section-heading section-heading-split">
+              <div>
+                <p className="eyebrow">{labels.papersKicker}</p>
+                <SectionTitle id="papers-title" lines={labels.papersTitle} />
+              </div>
+              <p>{labels.papersIntro}</p>
+            </div>
+
+            <div className="papers-list">
+              {copy.papers.map((paper, index) => (
+                <article className="paper-item" key={paper.title}>
+                  <div className="paper-index" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                  <div className="paper-status">{paper.status}</div>
+                  <div className="paper-content">
+                    <h3>{paper.title}</h3>
+                    {'authors' in paper && <p className="paper-authors">{paper.authors}</p>}
+                    {'venue' in paper && <p className="paper-venue">{paper.venue}</p>}
+                    <div className="paper-focus">
+                      <span>{labels.paperFocus}</span>
+                      <p>{paper.focus}</p>
+                    </div>
+                  </div>
+                  {'url' in paper ? (
+                    <a className="paper-link" href={paper.url} target="_blank" rel="noreferrer">
+                      {labels.paperLink} <span aria-hidden="true">↗</span>
+                    </a>
+                  ) : (
+                    <span className="paper-link paper-link-muted" aria-hidden="true">—</span>
+                  )}
                 </article>
               ))}
             </div>
@@ -433,7 +595,7 @@ function App() {
         <section className="contact-section" id="contact" aria-labelledby="contact-title">
           <div className="shell contact-inner">
             <p className="eyebrow">{labels.contactKicker}</p>
-            <h2 id="contact-title">{labels.contactTitle}</h2>
+            <SectionTitle id="contact-title" lines={labels.contactTitle} />
             <p className="contact-body">{labels.contactBody}</p>
             <div className="contact-links">
               <a href={`mailto:${profile.contact.email}`} className="contact-link">
