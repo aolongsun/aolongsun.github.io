@@ -28,16 +28,16 @@
   ],
   "facts": [
     {
-      "value": { "en": "B.S. · M.S. · Ph.D.", "zh": "本科 · 硕士 · 博士" },
-      "label": { "en": "statistics pathway · Ph.D. in progress", "zh": "统计学训练 · 博士在读" }
+      "value": { "en": "Machine Learning", "zh": "机器学习" },
+      "label": { "en": "predictive modeling · scientific evaluation", "zh": "预测建模 · 科学评估" }
     },
     {
-      "value": { "en": "BNU → VT", "zh": "北京师大 → VT" },
-      "label": { "en": "training across China and the United States", "zh": "中美两地的统计学教育经历" }
+      "value": { "en": "Design of Experiments", "zh": "实验设计" },
+      "label": { "en": "design of experiments · survey research", "zh": "实验设计 · 问卷研究" }
     },
     {
-      "value": { "en": "Research ↔ Practice", "zh": "研究 ↔ 实践" },
-      "label": { "en": "academic, public-sector, and industry experience", "zh": "学术研究、公共部门与应用实践" }
+      "value": { "en": "Statistical Inference", "zh": "统计推断" },
+      "label": { "en": "uncertainty · interpretable evidence", "zh": "不确定性 · 可解释证据" }
     }
   ],
   "locales": {

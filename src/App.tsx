@@ -14,13 +14,12 @@ const ui = {
     ],
     viewWork: 'View experience',
     contactMe: 'Contact me',
-    scroll: 'Scroll to explore',
     aboutKicker: '01 / Experience',
     aboutTitle: ['A statistical foundation', 'for applied questions.'],
     education: 'Education',
     experience: 'Selected experience',
     officialListing: 'Official department listing',
-    experienceHint: 'Hover over an experience to reveal its evidence.',
+    experienceEvidence: 'Evidence from experience',
     labels: {
       problem: 'Problem',
       data: 'Data',
@@ -29,8 +28,6 @@ const ui = {
     },
     approachKicker: '02 / Scientific Approach',
     approachTitle: ['Evidence-backed', 'analytical practice.'],
-    approachIntro:
-      'Each principle is tied to work I have actually done. Hover, focus, or tap a card to see the experience behind it.',
     approachEvidence: 'Evidence from experience',
     papersKicker: '03 / Papers',
     papersTitle: ['Published work', 'and research in progress.'],
@@ -58,13 +55,12 @@ const ui = {
     ],
     viewWork: '查看经历',
     contactMe: '联系我',
-    scroll: '向下浏览',
     aboutKicker: '01 / 经历',
     aboutTitle: ['以统计学训练为基础，', '研究真实世界问题。'],
     education: '教育经历',
     experience: '精选经历',
     officialListing: '统计系官方学生目录',
-    experienceHint: '将鼠标移至任一经历，即可查看相关问题、数据、方法与结论。',
+    experienceEvidence: '经历依据',
     labels: {
       problem: '问题',
       data: '数据',
@@ -73,8 +69,6 @@ const ui = {
     },
     approachKicker: '02 / 分析方法',
     approachTitle: ['以实证检验支撑', '分析判断。'],
-    approachIntro:
-      '每项原则均有具体研究或实践作为依据。将鼠标移至卡片，或通过键盘聚焦与触屏点击，即可查看相应证据。',
     approachEvidence: '实践证据',
     papersKicker: '03 / 文章',
     papersTitle: ['已发表成果', '与在研工作。'],
@@ -92,6 +86,13 @@ const ui = {
     closeMenu: '关闭导航菜单',
   },
 } as const
+
+type EvidenceSection = 'experience' | 'approach'
+
+type PinnedEvidence = {
+  section: EvidenceSection
+  index: number
+} | null
 
 function SectionTitle({ id, lines }: { id: string; lines: readonly string[] }) {
   return (
@@ -115,6 +116,7 @@ function App() {
   const [experienceDetailTop, setExperienceDetailTop] = useState(0)
   const [previewApproach, setPreviewApproach] = useState<number | null>(null)
   const [approachDetailGeometry, setApproachDetailGeometry] = useState({ top: 0, left: 0, width: 0, height: 0 })
+  const [pinnedEvidence, setPinnedEvidence] = useState<PinnedEvidence>(null)
   const backgroundLayoutRef = useRef<HTMLDivElement>(null)
   const approachGridRef = useRef<HTMLDivElement>(null)
 
@@ -135,18 +137,91 @@ function App() {
     return () => window.removeEventListener('resize', closeMenu)
   }, [])
 
+  useEffect(() => {
+    const mobileQuery = window.matchMedia('(max-width: 820px)')
+    const clearResponsivePreviews = () => {
+      setPreviewExperience(null)
+      setPreviewApproach(null)
+      setPinnedEvidence(null)
+    }
+
+    mobileQuery.addEventListener('change', clearResponsivePreviews)
+    return () => mobileQuery.removeEventListener('change', clearResponsivePreviews)
+  }, [])
+
+  useEffect(() => {
+    const closeEvidence = () => {
+      setPinnedEvidence(null)
+      setPreviewExperience(null)
+      setPreviewApproach(null)
+    }
+
+    const closeOnOutsidePointer = (event: PointerEvent) => {
+      const target = event.target
+      if (
+        target instanceof Element &&
+        target.closest('.experience-item, .approach-card, .experience-detail, .approach-evidence-panel')
+      ) {
+        return
+      }
+      closeEvidence()
+    }
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeEvidence()
+      }
+    }
+
+    document.addEventListener('pointerdown', closeOnOutsidePointer)
+    document.addEventListener('keydown', closeOnEscape)
+    return () => {
+      document.removeEventListener('pointerdown', closeOnOutsidePointer)
+      document.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [])
+
   const navItems = useMemo(() => labels.nav, [labels.nav])
   const experience = previewExperience === null ? null : copy.experience[previewExperience]
   const approach = previewApproach === null ? null : copy.approach[previewApproach]
+  const pinnedExperience =
+    pinnedEvidence?.section === 'experience' ? pinnedEvidence.index : null
+  const pinnedApproach = pinnedEvidence?.section === 'approach' ? pinnedEvidence.index : null
 
   const showExperience = (index: number, element: HTMLButtonElement) => {
+    if (!window.matchMedia('(min-width: 821px)').matches) {
+      return
+    }
+
     const layout = backgroundLayoutRef.current
     if (layout) {
       const layoutBounds = layout.getBoundingClientRect()
       const itemBounds = element.getBoundingClientRect()
       setExperienceDetailTop(Math.max(0, itemBounds.top - layoutBounds.top))
     }
+    if (pinnedEvidence && (pinnedEvidence.section !== 'experience' || pinnedEvidence.index !== index)) {
+      setPinnedEvidence(null)
+    }
+    setPreviewApproach(null)
     setPreviewExperience(index)
+  }
+
+  const hideExperience = () => {
+    if (window.matchMedia('(min-width: 821px)').matches) {
+      setPreviewExperience(pinnedExperience)
+    }
+  }
+
+  const toggleExperience = (index: number) => {
+    if (pinnedEvidence?.section === 'experience' && pinnedEvidence.index === index) {
+      setPinnedEvidence(null)
+      setPreviewExperience(null)
+      return
+    }
+
+    setPinnedEvidence({ section: 'experience', index })
+    setPreviewExperience(index)
+    setPreviewApproach(null)
   }
 
   const showApproach = (index: number, element: HTMLElement) => {
@@ -165,25 +240,74 @@ function App() {
         height: itemBounds.height,
       })
     }
+    if (pinnedEvidence && (pinnedEvidence.section !== 'approach' || pinnedEvidence.index !== index)) {
+      setPinnedEvidence(null)
+    }
+    setPreviewExperience(null)
     setPreviewApproach(index)
   }
 
   const hideApproach = () => {
     if (window.matchMedia('(min-width: 821px)').matches) {
-      setPreviewApproach(null)
+      setPreviewApproach(pinnedApproach)
     }
   }
 
   const toggleApproach = (index: number) => {
-    if (window.matchMedia('(max-width: 820px)').matches) {
-      setPreviewApproach((current) => (current === index ? null : index))
+    if (pinnedEvidence?.section === 'approach' && pinnedEvidence.index === index) {
+      setPinnedEvidence(null)
+      setPreviewApproach(null)
+      return
     }
+
+    setPinnedEvidence({ section: 'approach', index })
+    setPreviewApproach(index)
+    setPreviewExperience(null)
   }
 
   const chooseLanguage = (next: Locale) => {
     setLocale(next)
     setMenuOpen(false)
   }
+
+  const renderExperienceEvidence = (item: (typeof copy.experience)[number]) => (
+    <>
+      <div className="experience-evidence">
+        {(
+          [
+            ['problem', item.problem],
+            ['data', item.data],
+            ['method', item.method],
+            ['outcome', item.outcome],
+          ] as const
+        ).map(([key, text]) => (
+          <div className={key === 'data' ? 'evidence-data-cell' : undefined} key={key}>
+            <h4>{labels.labels[key]}</h4>
+            {key === 'data' ? (
+              <>
+                <div className="data-metric-table">
+                  {item.metrics.map((metric) => (
+                    <div className="data-metric-row" key={`${metric.value}-${metric.label}`}>
+                      <strong>{metric.value}</strong>
+                      <span>{metric.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="data-source-note">{text}</p>
+              </>
+            ) : (
+              <p>{text}</p>
+            )}
+          </div>
+        ))}
+      </div>
+      <div className="experience-tags">
+        {item.tags.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </div>
+    </>
+  )
 
   return (
     <>
@@ -329,8 +453,7 @@ function App() {
 
           <div className="hero-footer shell">
             <span className="hero-counter">00 — 04</span>
-            <a href="#experience" className="scroll-cue">
-              <span>{labels.scroll}</span>
+            <a href="#experience" className="scroll-cue" aria-label={labels.viewWork}>
               <span aria-hidden="true">↓</span>
             </a>
           </div>
@@ -384,7 +507,7 @@ function App() {
 
               {experience && (
                 <article
-                  className="experience-detail is-visible"
+                  className={`experience-detail is-visible ${pinnedExperience === previewExperience ? 'is-pinned' : ''}`}
                   aria-live="polite"
                   style={{ '--detail-top': `${experienceDetailTop}px` } as React.CSSProperties}
                 >
@@ -396,46 +519,12 @@ function App() {
                       <p className="experience-detail-role">{experience.role}</p>
                     </div>
                   </header>
-                  <div className="experience-evidence">
-                    {(
-                      [
-                        ['problem', experience.problem],
-                        ['data', experience.data],
-                        ['method', experience.method],
-                        ['outcome', experience.outcome],
-                      ] as const
-                    ).map(([key, text]) => (
-                      <div className={key === 'data' ? 'evidence-data-cell' : undefined} key={key}>
-                        <h4>{labels.labels[key]}</h4>
-                        {key === 'data' ? (
-                          <>
-                            <div className="data-metric-table">
-                              {experience.metrics.map((metric) => (
-                                <div className="data-metric-row" key={`${metric.value}-${metric.label}`}>
-                                  <strong>{metric.value}</strong>
-                                  <span>{metric.label}</span>
-                                </div>
-                              ))}
-                            </div>
-                            <p className="data-source-note">{text}</p>
-                          </>
-                        ) : (
-                          <p>{text}</p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="experience-tags">
-                    {experience.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
+                  {renderExperienceEvidence(experience)}
                 </article>
               )}
 
               <div className="experience-selector">
                 <h3 className="subsection-title">{labels.experience}</h3>
-                <p className="experience-hint">{labels.experienceHint}</p>
                 <div className="experience-list">
                   {copy.experience.map((item, index) => (
                     <button
@@ -443,10 +532,24 @@ function App() {
                       className={`experience-item ${previewExperience === index ? 'is-active' : ''}`}
                       key={`${item.organization}-${item.role}`}
                       aria-expanded={previewExperience === index}
+                      aria-pressed={pinnedExperience === index}
+                      aria-controls={`experience-evidence-${index}`}
                       onMouseEnter={(event) => showExperience(index, event.currentTarget)}
-                      onMouseLeave={() => setPreviewExperience(null)}
+                      onMouseLeave={hideExperience}
                       onFocus={(event) => showExperience(index, event.currentTarget)}
-                      onBlur={() => setPreviewExperience(null)}
+                      onBlur={hideExperience}
+                      onClick={(event) => {
+                        if ((event.target as Element).closest('.experience-detail-inline')) {
+                          return
+                        }
+                        toggleExperience(index)
+                      }}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault()
+                          toggleExperience(index)
+                        }
+                      }}
                     >
                       <div className="experience-topline">
                         <span>{item.period}</span>
@@ -455,6 +558,16 @@ function App() {
                       <h4>{item.organization}</h4>
                       <p className="experience-role">{item.role}</p>
                       <p>{item.summary}</p>
+                      {previewExperience === index && (
+                        <div
+                          className="experience-detail-inline"
+                          id={`experience-evidence-${index}`}
+                          aria-live="polite"
+                        >
+                          <p className="experience-evidence-label">{labels.experienceEvidence}</p>
+                          {renderExperienceEvidence(item)}
+                        </div>
+                      )}
                     </button>
                   ))}
                 </div>
@@ -470,7 +583,6 @@ function App() {
                 <p className="eyebrow">{labels.approachKicker}</p>
                 <SectionTitle id="approach-title" lines={labels.approachTitle} />
               </div>
-              <p>{labels.approachIntro}</p>
             </div>
 
             <div className="approach-grid" ref={approachGridRef}>
@@ -481,13 +593,19 @@ function App() {
                   tabIndex={0}
                   role="button"
                   aria-expanded={previewApproach === index}
+                  aria-pressed={pinnedApproach === index}
                   onMouseEnter={(event) => showApproach(index, event.currentTarget)}
                   onMouseLeave={hideApproach}
                   onFocus={(event) => showApproach(index, event.currentTarget)}
                   onBlur={hideApproach}
-                  onClick={() => toggleApproach(index)}
+                  onClick={(event) => {
+                    if ((event.target as Element).closest('.approach-evidence-inline')) {
+                      return
+                    }
+                    toggleApproach(index)
+                  }}
                   onKeyDown={(event) => {
-                    if ((event.key === 'Enter' || event.key === ' ') && window.matchMedia('(max-width: 820px)').matches) {
+                    if (event.key === 'Enter' || event.key === ' ') {
                       event.preventDefault()
                       toggleApproach(index)
                     }
@@ -516,7 +634,7 @@ function App() {
               ))}
               {approach && (
                 <aside
-                  className="approach-evidence-panel"
+                  className={`approach-evidence-panel ${pinnedApproach === previewApproach ? 'is-pinned' : ''}`}
                   aria-live="polite"
                   style={
                     {

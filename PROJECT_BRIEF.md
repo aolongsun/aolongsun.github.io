@@ -39,9 +39,9 @@ Primary audiences, in order:
 - The navigation wordmark pairs the unchanged geometric `AS` monogram with a handwritten full-name signature: locally hosted Kaushan Script for English and a three-glyph Ma Shan Zheng subset for Chinese. The two elements use contrasting typographic roles rather than repeating the same brush treatment.
 - Two-column hero with an equal-height profile card on the left and identity statement on the right. Both columns share one top baseline; public email and GitHub sit beneath the right-side actions. Hero facts summarize the overall academic and professional path rather than one experience.
 - On desktop, both Hero columns and their internal content bands use language-independent geometry so switching between English and Chinese does not move surrounding elements. The Chinese name remains on one line. Mobile layouts return to natural content flow.
-- One unified Experience section containing scannable education points and a hover/focus experience browser organized around problem, data, method, and outcome. The evidence panel aligns vertically with the active experience item, and its Data cell contains a compact three-row evidence table.
+- One unified Experience section containing scannable education points and an evidence browser organized around problem, data, method, and outcome. On desktop, hover or keyboard focus reveals a left-side panel aligned vertically with the active experience item; clicking locks the panel so its text can be selected and copied. On touch layouts, tapping an item expands the same evidence inside that card. The Data cell contains a compact three-row evidence table.
 - Education entries reserve a separate left metadata rail for dates and proportion-preserving school identifiers, leaving the degree column at full width. Virginia Tech uses its complete university lockup; Beijing Normal University uses the user-selected complete blue lockup containing the seal, calligraphic Chinese name, and English name. Multi-degree entries separate the bachelor's and master's degrees onto distinct lines.
-- Scientific Approach section describing evidence-backed working principles rather than subjective skill ratings. Its existing two-by-two desktop grid, card geometry, typography, borders, colors, spacing, and section height remain unchanged. Hovering or focusing a card reveals a same-row evidence panel over the opposite column with its top edge aligned to the trigger; touch layouts expand the evidence within the active card.
+- Scientific Approach section describing evidence-backed working principles rather than subjective skill ratings. Its existing two-by-two desktop grid and geometry remain unchanged. Hovering or focusing a card reveals a same-row evidence panel over the opposite column; clicking locks the panel for text selection, while touch layouts expand the evidence within the active card.
 - Papers section after Scientific Approach, presenting verified bibliographic information and concise research focus for two published papers plus one clearly labeled research-in-progress item. The private proposal source is neither linked nor copied into public assets.
 - Compact closing contact section with public email and GitHub.
 
@@ -81,8 +81,8 @@ Design principles:
 
 - Advanced and distinctive, but not loud or game-like.
 - Dark navy, warm white, and near-black form the base; electric cyan and a controlled red are accents.
-- The full Klein-blue surface is reserved for the Hero. Experience uses warm paper, followed by a gradient-free tonal staircase: Approach uses light blue-gray, Papers uses slate blue, and Contact closes in deep navy. A thin Klein-blue rule connects the final Contact section back to the opening without repeating the Hero field.
-- Section variety comes from controlled shifts in temperature and brightness within the existing palette, not from additional accent colors, gradients, or transitional decoration.
+- The full Klein-blue surface is reserved for the Hero. Experience, Scientific Approach, and Papers share the same warm-paper field; Contact uses a restrained light blue-gray before the narrow dark footer.
+- Section variety comes from typography, rules, interaction, and the final cool-paper shift rather than additional accent colors, gradients, or transitional decoration.
 - Use hard edges, diagonal cuts, thin rules, offset shadows, large typography, and disciplined whitespace.
 - Reserve glass blur primarily for the fixed navigation.
 - Keep body copy calm and highly readable.
@@ -97,6 +97,7 @@ Design principles:
 - Buttons and links have coordinated hover and keyboard-focus feedback.
 - Motion must not cause layout shift.
 - Touch users must not depend on hover to understand or activate controls.
+- Experience and Approach use the same evidence interaction model: hover or focus previews on desktop, click locks the panel for copying, click outside or press Escape closes it, and touch layouts expand evidence inside the active card.
 - Approach evidence panels are overlays on desktop and must not reflow, resize, or restyle the underlying two-by-two card framework.
 - Hero motion pauses or becomes static when `prefers-reduced-motion` is enabled.
 

@@ -19,9 +19,7 @@
   --ink: #0a1020;
   --ink-soft: #11182b;
   --paper: #f4f0e8;
-  --approach-paper: #d9e1eb;
-  --papers-navy: #33415f;
-  --contact-navy: #253149;
+  --contact-paper: #d9e1eb;
   --paper-muted: #c8c7c2;
   --cyan: #8edaf1;
   --blue: #1b43c6;
@@ -858,7 +856,13 @@ h4 {
   color: var(--paper);
   background: var(--blue);
   box-shadow: 12px 12px 0 var(--ink);
+  pointer-events: none;
   animation: detail-reveal 160ms ease-out both;
+}
+
+.experience-detail.is-pinned {
+  pointer-events: auto;
+  user-select: text;
 }
 
 @keyframes detail-reveal {
@@ -1054,11 +1058,18 @@ h4 {
   justify-content: space-between;
 }
 
-.experience-hint {
-  margin: -18px 0 18px;
-  color: rgba(7, 17, 31, 0.52);
-  font-size: 0.72rem;
-  line-height: 1.5;
+.experience-detail-inline {
+  display: none;
+}
+
+.experience-evidence-label {
+  margin: 0;
+  color: var(--cyan) !important;
+  font-size: 0.62rem !important;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.3 !important;
+  text-transform: uppercase;
 }
 
 .experience-detail-header {
@@ -1196,7 +1207,7 @@ h4 {
 
 .approach-section {
   color: var(--ink);
-  background: var(--approach-paper);
+  background: var(--paper);
 }
 
 .approach-grid {
@@ -1283,6 +1294,11 @@ h4 {
   border-bottom: 1px solid rgba(7, 17, 31, 0.2);
   pointer-events: none;
   animation: approach-evidence-reveal 160ms ease-out both;
+}
+
+.approach-evidence-panel.is-pinned {
+  pointer-events: auto;
+  user-select: text;
 }
 
 @keyframes approach-evidence-reveal {
@@ -1374,19 +1390,19 @@ h4 {
 }
 
 .papers-section {
-  color: var(--paper);
-  background: var(--papers-navy);
+  color: var(--ink);
+  background: var(--paper);
 }
 
 .papers-section .eyebrow,
 .paper-status,
 .paper-focus > span,
 .paper-link {
-  color: var(--cyan);
+  color: var(--blue);
 }
 
 .papers-list {
-  border-top: 3px solid var(--paper);
+  border-top: 3px solid var(--ink);
 }
 
 .paper-item {
@@ -1396,11 +1412,11 @@ h4 {
   grid-template-columns: 64px minmax(132px, 0.28fr) minmax(0, 1fr) minmax(128px, 0.22fr);
   gap: clamp(22px, 3.5vw, 58px);
   align-items: start;
-  border-bottom: 1px solid rgba(244, 240, 232, 0.24);
+  border-bottom: 1px solid rgba(7, 17, 31, 0.24);
 }
 
 .paper-index {
-  color: rgba(244, 240, 232, 0.42);
+  color: rgba(7, 17, 31, 0.42);
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 850;
@@ -1428,14 +1444,14 @@ h4 {
 .paper-authors,
 .paper-venue {
   margin: 0;
-  color: rgba(244, 240, 232, 0.64);
+  color: rgba(7, 17, 31, 0.64);
   font-size: 0.82rem;
   line-height: 1.6;
 }
 
 .paper-venue {
   margin-top: 4px;
-  color: rgba(244, 240, 232, 0.48);
+  color: rgba(7, 17, 31, 0.48);
 }
 
 .paper-focus {
@@ -1445,7 +1461,7 @@ h4 {
   display: grid;
   grid-template-columns: minmax(90px, 0.22fr) minmax(0, 1fr);
   gap: 22px;
-  border-top: 1px solid rgba(244, 240, 232, 0.2);
+  border-top: 1px solid rgba(7, 17, 31, 0.2);
 }
 
 .paper-focus > span {
@@ -1458,7 +1474,7 @@ h4 {
 
 .paper-focus p {
   margin: 0;
-  color: rgba(244, 240, 232, 0.74);
+  color: rgba(7, 17, 31, 0.74);
   font-size: 0.92rem;
   line-height: 1.7;
 }
@@ -1481,7 +1497,7 @@ h4 {
 .paper-link:hover,
 .paper-link:focus-visible {
   gap: 14px;
-  color: var(--paper);
+  color: var(--ink);
 }
 
 .paper-link-muted {
@@ -1496,7 +1512,8 @@ h4 {
   align-items: center;
   overflow: hidden;
   border-top: 3px solid var(--blue);
-  background: var(--contact-navy);
+  color: var(--ink);
+  background: var(--contact-paper);
 }
 
 .contact-section::before {
@@ -1509,7 +1526,7 @@ h4 {
 }
 
 .contact-section .eyebrow {
-  color: var(--cyan);
+  color: var(--blue);
 }
 
 .contact-section h2 {
@@ -1520,7 +1537,7 @@ h4 {
 .contact-body {
   max-width: 680px;
   margin: 28px 0 clamp(40px, 5vw, 64px);
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(7, 17, 31, 0.72);
   font-size: clamp(1.05rem, 1.5vw, 1.3rem);
   line-height: 1.65;
 }
@@ -1529,7 +1546,7 @@ h4 {
   max-width: 1240px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(7, 17, 31, 0.34);
 }
 
 .contact-link {
@@ -1539,8 +1556,8 @@ h4 {
   grid-template-columns: 120px 1fr 24px;
   gap: 22px;
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.36);
-  border-right: 1px solid rgba(255, 255, 255, 0.36);
+  border-bottom: 1px solid rgba(7, 17, 31, 0.3);
+  border-right: 1px solid rgba(7, 17, 31, 0.3);
   transition: color 180ms ease, padding 180ms ease, background 180ms ease;
 }
 
@@ -1569,8 +1586,8 @@ h4 {
 .contact-link:hover,
 .contact-link:focus-visible {
   padding-inline: 24px;
-  color: var(--ink);
-  background: var(--cyan);
+  color: var(--paper);
+  background: var(--blue);
 }
 
 .site-footer {
@@ -1797,15 +1814,43 @@ h4 {
     grid-template-columns: 1fr;
     grid-template-areas:
       "education"
-      "selector"
-      "detail";
+      "selector";
     gap: 84px;
     padding-bottom: 0;
   }
 
   .experience-detail {
-    position: static;
-    width: auto;
+    display: none;
+  }
+
+  .experience-detail-inline {
+    margin-top: 26px;
+    display: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+  }
+
+  .experience-item.is-active .experience-detail-inline {
+    display: block;
+  }
+
+  .experience-detail-inline .experience-evidence-label {
+    margin-top: 20px;
+  }
+
+  .experience-detail-inline .experience-evidence {
+    grid-template-columns: 1fr;
+    margin-top: 14px;
+  }
+
+  .experience-detail-inline .experience-evidence > div,
+  .experience-detail-inline .experience-evidence > div:nth-child(even) {
+    min-height: auto;
+    padding: 20px 0 22px;
+    border-right: 0;
+  }
+
+  .experience-detail-inline .experience-tags {
+    margin-bottom: 2px;
   }
 
   .section-heading-split {
@@ -2018,25 +2063,6 @@ h4 {
   .experience-item.is-active {
     padding-inline: 18px;
     transform: none;
-  }
-
-  .experience-detail {
-    padding: 26px 22px;
-  }
-
-  .experience-detail-header {
-    grid-template-columns: 48px 1fr;
-  }
-
-  .experience-evidence {
-    grid-template-columns: 1fr;
-  }
-
-  .experience-evidence > div,
-  .experience-evidence > div:nth-child(even) {
-    min-height: auto;
-    padding: 20px 0 22px;
-    border-right: 0;
   }
 
   .approach-card {
