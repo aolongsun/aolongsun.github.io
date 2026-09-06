@@ -34,16 +34,17 @@ Primary audiences, in order:
 
 ## 5. Version 0.1 Content
 
-- Full-viewport hero with a restrained motion background, identity, positioning statement, and two calls to action.
+- Full-viewport introduction that integrates portrait, identity, positioning, academic background, research interests, links, and calls to action in one composition.
 - Fixed glass-effect navigation with English/Chinese switching.
 - The navigation wordmark pairs the unchanged geometric `AS` monogram with a handwritten full-name signature: locally hosted Kaushan Script for English and a three-glyph Ma Shan Zheng subset for Chinese. The two elements use contrasting typographic roles rather than repeating the same brush treatment.
-- Two-column hero with an equal-height profile card on the left and identity statement on the right. Both columns share one top baseline; public email and GitHub sit beneath the right-side actions. Hero facts summarize the overall academic and professional path rather than one experience.
-- On desktop, both Hero columns and their internal content bands use language-independent geometry so switching between English and Chinese does not move surrounding elements. The Chinese name remains on one line. Mobile layouts return to natural content flow.
+- The portrait sits beside the identity flow without a separate profile panel. Hero facts summarize the overall academic and professional path rather than one experience, and public email and GitHub remain part of the same introduction.
+- The Chinese name remains on one line. Responsive layouts preserve the same hierarchy while allowing the portrait and copy to stack naturally on small screens.
 - One unified Experience section containing scannable education points and an evidence browser organized around problem, data, method, and outcome. On desktop, hover or keyboard focus reveals a left-side panel aligned vertically with the active experience item; clicking locks the panel so its text can be selected and copied. On touch layouts, tapping an item expands the same evidence inside that card. The Data cell contains a compact three-row evidence table.
 - Education entries reserve a separate left metadata rail for dates and proportion-preserving school identifiers, leaving the degree column at full width. Virginia Tech uses its complete university lockup; Beijing Normal University uses the user-selected complete blue lockup containing the seal, calligraphic Chinese name, and English name. Multi-degree entries separate the bachelor's and master's degrees onto distinct lines.
 - Scientific Approach section describing evidence-backed working principles rather than subjective skill ratings. Its existing two-by-two desktop grid and geometry remain unchanged. Hovering or focusing a card reveals a same-row evidence panel over the opposite column; clicking locks the panel for text selection, while touch layouts expand the evidence within the active card.
 - Papers section after Scientific Approach, presenting verified bibliographic information and concise research focus for two published papers plus one clearly labeled research-in-progress item. The private proposal source is neither linked nor copied into public assets.
 - Compact closing contact section with public email and GitHub.
+- Experience, Scientific Approach, Papers, and Contact open with compact numbered identifiers only; they do not use separate chapter slogans or large chapter-opening titles.
 
 ## 6. Out of Scope for Version 0.1
 
@@ -70,23 +71,23 @@ When visibility is uncertain, treat the information as private.
 - Remember the visitor's explicit language choice on the device.
 - Every visible navigation label, heading, button, description, image alternative, and metadata-relevant phrase should have both language versions.
 - Translation should preserve meaning and professional tone rather than mirror sentence structure word for word.
-- Major section headings use explicit, semantically chosen line breaks. A line must not split a Chinese phrase or leave an isolated character.
+- Compact chapter identifiers provide the section headings in both languages without a separate slogan layer.
 - Public email addresses and web addresses remain complete on one line across supported browsers and must not be truncated with ellipses.
 
 ## 9. Visual Direction
 
-The visual direction is a professional editorial portfolio with high-contrast color blocking, hard-edged shading, precise graphic linework, asymmetric composition, and restrained Persona/Atlus-inspired motion.
+The visual direction is a modern academic and professional profile with a distinctive editorial identity. Information hierarchy, evidence, typography, spacing, and alignment take priority; graphic motion and high-contrast details remain restrained supporting elements.
 
 Design principles:
 
-- Advanced and distinctive, but not loud or game-like.
-- Dark navy, warm white, and near-black form the base; electric cyan and a controlled red are accents.
-- The full Klein-blue surface is reserved for the Hero. Experience, Scientific Approach, and Papers share the same warm-paper field; Contact uses a restrained light blue-gray before the narrow dark footer.
-- Section variety comes from typography, rules, interaction, and the final cool-paper shift rather than additional accent colors, gradients, or transitional decoration.
-- Use hard edges, diagonal cuts, thin rules, offset shadows, large typography, and disciplined whitespace.
+- Modern and distinctive, but calm enough for academic and professional reading.
+- Warm paper and near-black form the site-wide base; Klein blue is the primary accent for links, actions, evidence states, and selected identity details.
+- Hero, Experience, Scientific Approach, Papers, and Contact share the same warm-paper field, with the narrow dark footer serving as the only major background break.
+- Sections read as consecutive parts of one document, share one responsive chapter-spacing rule, and are distinguished through compact identifiers, alignment, and subtle one-pixel rules rather than separate visual scenes.
+- Use disciplined whitespace, consistent thin rules, strong but measured typography, and only occasional softened geometric details.
 - Reserve glass blur primarily for the fixed navigation.
 - Keep body copy calm and highly readable.
-- Use no more than one dominant motion focus per viewport.
+- Keep motion limited to purposeful interaction feedback rather than ambient decoration.
 - Prefer fast, purposeful micro-interactions over decorative animation.
 - Never reproduce reference artwork directly.
 
@@ -99,7 +100,7 @@ Design principles:
 - Touch users must not depend on hover to understand or activate controls.
 - Experience and Approach use the same evidence interaction model: hover or focus previews on desktop, click locks the panel for copying, click outside or press Escape closes it, and touch layouts expand evidence inside the active card.
 - Approach evidence panels are overlays on desktop and must not reflow, resize, or restyle the underlying two-by-two card framework.
-- Hero motion pauses or becomes static when `prefers-reduced-motion` is enabled.
+- All interaction motion becomes effectively static when `prefers-reduced-motion` is enabled.
 
 ## 11. Layout and Responsive Requirements
 
@@ -118,7 +119,7 @@ Design principles:
 - No information communicated through color alone.
 - Minimum practical touch targets around 44px.
 - Respect reduced-motion preferences.
-- Optimize public images and video; provide a static fallback for hero media.
+- Optimize public images and retain stable dimensions to prevent layout shift.
 - Avoid broken links, console errors, clipping, horizontal overflow, and untranslated interface text.
 
 ## 13. Technical Direction

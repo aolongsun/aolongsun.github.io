@@ -15,7 +15,6 @@ const ui = {
     viewWork: 'View experience',
     contactMe: 'Contact me',
     aboutKicker: '01 / Experience',
-    aboutTitle: ['A statistical foundation', 'for applied questions.'],
     education: 'Education',
     experience: 'Selected experience',
     officialListing: 'Official department listing',
@@ -27,14 +26,11 @@ const ui = {
       outcome: 'Outcome',
     },
     approachKicker: '02 / Scientific Approach',
-    approachTitle: ['Evidence-backed', 'analytical practice.'],
     approachEvidence: 'Evidence from experience',
     papersKicker: '03 / Papers',
-    papersTitle: ['Published work', 'and research in progress.'],
     paperFocus: 'Research focus',
     paperLink: 'View publication',
     contactKicker: '04 / Contact',
-    contactTitle: ['Let’s make complex', 'questions clearer.'],
     contactBody:
       'I welcome conversations about statistical modeling, applied machine learning, experimentation, and data-intensive research.',
     email: 'Send an email',
@@ -56,7 +52,6 @@ const ui = {
     viewWork: '查看经历',
     contactMe: '联系我',
     aboutKicker: '01 / 经历',
-    aboutTitle: ['以统计学训练为基础，', '研究真实世界问题。'],
     education: '教育经历',
     experience: '精选经历',
     officialListing: '统计系官方学生目录',
@@ -68,14 +63,11 @@ const ui = {
       outcome: '结论',
     },
     approachKicker: '02 / 分析方法',
-    approachTitle: ['以实证检验支撑', '分析判断。'],
     approachEvidence: '实践证据',
     papersKicker: '03 / 文章',
-    papersTitle: ['已发表成果', '与在研工作。'],
     paperFocus: '研究重点',
     paperLink: '查看文章',
     contactKicker: '04 / 联系',
-    contactTitle: ['围绕复杂问题，', '开展专业交流与合作。'],
     contactBody: '欢迎就统计建模、机器学习评估、实验设计与复杂数据分析等议题进行交流。',
     email: '发送邮件',
     github: '查看 GitHub',
@@ -93,18 +85,6 @@ type PinnedEvidence = {
   section: EvidenceSection
   index: number
 } | null
-
-function SectionTitle({ id, lines }: { id: string; lines: readonly string[] }) {
-  return (
-    <h2 id={id} aria-label={lines.join(' ')}>
-      {lines.map((line) => (
-        <span className="section-title-line" aria-hidden="true" key={line}>
-          {line}
-        </span>
-      ))}
-    </h2>
-  )
-}
 
 function App() {
   const [locale, setLocale] = useState<Locale>(() => {
@@ -371,32 +351,19 @@ function App() {
           id="top"
           aria-labelledby="hero-title"
         >
-          <video
-            className="hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster="/images/hero-poster.jpg"
-            aria-hidden="true"
-          >
-            <source src="/media/hero-motion.mp4" type="video/mp4" />
-          </video>
-          <div className="hero-video-filter" aria-hidden="true" />
-          <div className="hero-lines" aria-hidden="true">
-            <span className="line line-one" />
-            <span className="line line-two" />
-            <span className="line line-three" />
-          </div>
-          <div className="hero-orbit" aria-hidden="true" />
-
           <div className="hero-content shell">
-            <aside className="hero-profile" aria-label={locale === 'en' ? 'Profile summary' : '个人简介'}>
+            <div className="hero-intro">
               <div className="hero-portrait">
                 <img src={profile.portrait.src} alt={profile.portrait.alt[locale]} />
                 <span>{copy.location}</span>
               </div>
-              <div className="hero-profile-copy">
+
+              <div className="hero-copy">
+                <p className="eyebrow hero-eyebrow">{copy.eyebrow}</p>
+                <h1 id="hero-title" className={locale === 'zh' ? 'is-zh' : ''}>
+                  <span>{locale === 'en' ? 'Aolong Sun' : '孙奥龙'}</span>
+                </h1>
+                <p className="hero-statement">{copy.headline}</p>
                 <p className="hero-bio">{copy.shortBio}</p>
                 <div className="hero-facts" aria-label={locale === 'en' ? 'Selected facts' : '精选数据'}>
                   {profile.facts.map((fact) => (
@@ -406,48 +373,29 @@ function App() {
                     </div>
                   ))}
                 </div>
+                <div className="hero-actions">
+                  <a className="button button-primary" href="#experience">
+                    <span>{labels.viewWork}</span>
+                    <span aria-hidden="true">↘</span>
+                  </a>
+                  <a className="button button-ghost" href={`mailto:${profile.contact.email}`}>
+                    <span>{labels.contactMe}</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+                <div className="hero-copy-contact">
+                  <a href={`mailto:${profile.contact.email}`}>
+                    <span>Email</span>
+                    <strong>{profile.contact.email}</strong>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                  <a href={profile.contact.github} target="_blank" rel="noreferrer">
+                    <span>GitHub</span>
+                    <strong>github.com/aolongsun</strong>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
               </div>
-            </aside>
-
-            <div className="hero-copy">
-              <p className="eyebrow hero-eyebrow">{copy.eyebrow}</p>
-              <h1 id="hero-title" className={locale === 'zh' ? 'is-zh' : ''}>
-                {locale === 'en' ? (
-                  <>
-                    <span>Aolong</span>
-                    <span>Sun</span>
-                  </>
-                ) : (
-                  <span>孙奥龙</span>
-                )}
-              </h1>
-              <p className="hero-statement">{copy.headline}</p>
-              <div className="hero-actions">
-                <a className="button button-primary" href="#experience">
-                  <span>{labels.viewWork}</span>
-                  <span aria-hidden="true">↘</span>
-                </a>
-                <a className="button button-ghost" href={`mailto:${profile.contact.email}`}>
-                  <span>{labels.contactMe}</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-              <div className="hero-copy-contact">
-                <a href={`mailto:${profile.contact.email}`}>
-                  <span>Email</span>
-                  <strong>{profile.contact.email}</strong>
-                  <span aria-hidden="true">↗</span>
-                </a>
-                <a href={profile.contact.github} target="_blank" rel="noreferrer">
-                  <span>GitHub</span>
-                  <strong>github.com/aolongsun</strong>
-                  <span aria-hidden="true">↗</span>
-                </a>
-              </div>
-            </div>
-
-            <div className="hero-side-note" aria-hidden="true">
-              <span>STAT / DATA / EVIDENCE</span>
             </div>
           </div>
 
@@ -461,9 +409,8 @@ function App() {
 
         <section className="section background-section" id="experience" aria-labelledby="experience-title">
           <div className="shell">
-            <div className="section-heading">
-              <p className="eyebrow">{labels.aboutKicker}</p>
-              <SectionTitle id="experience-title" lines={labels.aboutTitle} />
+            <div className="chapter-heading">
+              <h2 className="eyebrow" id="experience-title">{labels.aboutKicker}</h2>
             </div>
 
             <div className="background-layout" ref={backgroundLayoutRef}>
@@ -578,11 +525,8 @@ function App() {
 
         <section className="section approach-section" id="approach" aria-labelledby="approach-title">
           <div className="shell">
-            <div className="section-heading section-heading-split">
-              <div>
-                <p className="eyebrow">{labels.approachKicker}</p>
-                <SectionTitle id="approach-title" lines={labels.approachTitle} />
-              </div>
+            <div className="chapter-heading">
+              <h2 className="eyebrow" id="approach-title">{labels.approachKicker}</h2>
             </div>
 
             <div className="approach-grid" ref={approachGridRef}>
@@ -671,9 +615,8 @@ function App() {
 
         <section className="section papers-section" id="papers" aria-labelledby="papers-title">
           <div className="shell">
-            <div className="section-heading">
-              <p className="eyebrow">{labels.papersKicker}</p>
-              <SectionTitle id="papers-title" lines={labels.papersTitle} />
+            <div className="chapter-heading">
+              <h2 className="eyebrow" id="papers-title">{labels.papersKicker}</h2>
             </div>
 
             <div className="papers-list">
@@ -707,8 +650,9 @@ function App() {
 
         <section className="contact-section" id="contact" aria-labelledby="contact-title">
           <div className="shell contact-inner">
-            <p className="eyebrow">{labels.contactKicker}</p>
-            <SectionTitle id="contact-title" lines={labels.contactTitle} />
+            <div className="chapter-heading">
+              <h2 className="eyebrow" id="contact-title">{labels.contactKicker}</h2>
+            </div>
             <p className="contact-body">{labels.contactBody}</p>
             <div className="contact-links">
               <a href={`mailto:${profile.contact.email}`} className="contact-link">

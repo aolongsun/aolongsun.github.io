@@ -41,13 +41,13 @@ Read `PROJECT_BRIEF.md` before product-level changes. If information is uncertai
 ## Implementation Guardrails
 
 - Use straightforward React, TypeScript, and CSS; avoid dependencies or abstractions without a clear benefit.
-- On desktop, the two Hero columns must always share exactly the same top and bottom boundaries. Language switching and internal content edits must preserve this outer geometry; removing an item must not collapse or shift either column.
+- Treat the Hero as one integrated introduction rather than two independent panels. Language switching and internal content edits must preserve its hierarchy and avoid visible layout jumps.
 - Preserve static-site compatibility and the option to deploy with GitHub Pages.
 - Do not add a backend, database, authentication, analytics, CMS, or contact-form service without explicit approval.
 - Maintain semantic landmarks, logical heading order, accessible names, meaningful image alternatives, visible focus states, keyboard access, and practical touch targets.
 - Functionality must not depend on hover. Respect `prefers-reduced-motion` and avoid motion that shifts layout or blocks access.
 - Follow the visual direction in `PROJECT_BRIEF.md`; references are inspiration only. Never copy protected artwork, characters, logos, screenshots, proprietary fonts, or compositions.
-- Use lowercase English `kebab-case` names for public assets. Hero video must be original or properly licensed, muted, loopable, and have a static fallback.
+- Use lowercase English `kebab-case` names for public assets.
 
 ## Change Workflow
 
