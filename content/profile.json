@@ -1,6 +1,21 @@
 {
   "contact": {
-    "email": "sean.sunaolong@gmail.com",
+    "emails": [
+      {
+        "address": "aolong@vt.edu",
+        "label": {
+          "en": "Virginia Tech email",
+          "zh": "VT 邮箱"
+        }
+      },
+      {
+        "address": "sean.sunaolong@gmail.com",
+        "label": {
+          "en": "Personal email",
+          "zh": "个人邮箱"
+        }
+      }
+    ],
     "github": "https://github.com/aolongsun"
   },
   "portrait": {

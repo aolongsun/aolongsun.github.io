@@ -33,7 +33,6 @@ const ui = {
     contactKicker: '04 / Contact',
     contactBody:
       'I welcome conversations about statistical modeling, applied machine learning, experimentation, and data-intensive research.',
-    email: 'Send an email',
     github: 'View GitHub',
     backTop: 'Back to top',
     footer: 'Designed as an evolving record of work, evidence, and learning.',
@@ -69,7 +68,6 @@ const ui = {
     paperLink: '查看文章',
     contactKicker: '04 / 联系',
     contactBody: '欢迎就统计建模、机器学习评估、实验设计与复杂数据分析等议题进行交流。',
-    email: '发送邮件',
     github: '查看 GitHub',
     backTop: '返回顶部',
     footer: '持续记录研究实践、分析依据与学习进展。',
@@ -102,6 +100,7 @@ function App() {
 
   const copy = profile.locales[locale]
   const labels = ui[locale]
+  const primaryEmail = profile.contact.emails[0]
 
   useEffect(() => {
     document.documentElement.lang = locale === 'en' ? 'en' : 'zh-CN'
@@ -378,18 +377,29 @@ function App() {
                     <span>{labels.viewWork}</span>
                     <span aria-hidden="true">↘</span>
                   </a>
-                  <a className="button button-ghost" href={`mailto:${profile.contact.email}`}>
+                  <a className="button button-ghost" href={`mailto:${primaryEmail.address}`}>
                     <span>{labels.contactMe}</span>
                     <span aria-hidden="true">→</span>
                   </a>
                 </div>
                 <div className="hero-copy-contact">
-                  <a href={`mailto:${profile.contact.email}`}>
-                    <span>Email</span>
-                    <strong>{profile.contact.email}</strong>
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                  <a href={profile.contact.github} target="_blank" rel="noreferrer">
+                  {profile.contact.emails.map((email) => (
+                    <a
+                      className="hero-contact-link hero-email-link"
+                      href={`mailto:${email.address}`}
+                      key={email.address}
+                    >
+                      <span>{email.label[locale]}</span>
+                      <strong>{email.address}</strong>
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  ))}
+                  <a
+                    className="hero-contact-link hero-github-link"
+                    href={profile.contact.github}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <span>GitHub</span>
                     <strong>github.com/aolongsun</strong>
                     <span aria-hidden="true">↗</span>
@@ -655,12 +665,23 @@ function App() {
             </div>
             <p className="contact-body">{labels.contactBody}</p>
             <div className="contact-links">
-              <a href={`mailto:${profile.contact.email}`} className="contact-link">
-                <span>{labels.email}</span>
-                <strong>{profile.contact.email}</strong>
-                <span aria-hidden="true">↗</span>
-              </a>
-              <a href={profile.contact.github} target="_blank" rel="noreferrer" className="contact-link">
+              {profile.contact.emails.map((email) => (
+                <a
+                  href={`mailto:${email.address}`}
+                  className="contact-link contact-email-link"
+                  key={email.address}
+                >
+                  <span>{email.label[locale]}</span>
+                  <strong>{email.address}</strong>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              ))}
+              <a
+                href={profile.contact.github}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-link contact-github-link"
+              >
                 <span>{labels.github}</span>
                 <strong>github.com/aolongsun</strong>
                 <span aria-hidden="true">↗</span>

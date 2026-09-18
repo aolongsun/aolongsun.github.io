@@ -30,20 +30,20 @@ Primary audiences, in order:
 - Review selected work and the evidence behind it.
 - Visit the public GitHub profile.
 - Optionally verify the current Virginia Tech affiliation through the department's official graduate-student directory.
-- Contact Aolong through the public email address.
+- Contact Aolong through either public email address, with the Virginia Tech address presented as the primary professional contact.
 
 ## 5. Version 0.1 Content
 
 - Full-viewport introduction that integrates portrait, identity, positioning, academic background, research interests, links, and calls to action in one composition.
 - Fixed glass-effect navigation with English/Chinese switching.
 - The navigation wordmark pairs the unchanged geometric `AS` monogram with a handwritten full-name signature: locally hosted Kaushan Script for English and a three-glyph Ma Shan Zheng subset for Chinese. The two elements use contrasting typographic roles rather than repeating the same brush treatment.
-- The portrait sits beside the identity flow without a separate profile panel. Hero facts summarize the overall academic and professional path rather than one experience, and public email and GitHub remain part of the same introduction.
+- The portrait sits beside the identity flow without a separate profile panel. Hero facts summarize the overall academic and professional path rather than one experience, and both public email addresses plus GitHub remain part of the same introduction.
 - The Chinese name remains on one line. Responsive layouts preserve the same hierarchy while allowing the portrait and copy to stack naturally on small screens.
 - One unified Experience section containing scannable education points and an evidence browser organized around problem, data, method, and outcome. On desktop, hover or keyboard focus reveals a left-side panel aligned vertically with the active experience item; clicking locks the panel so its text can be selected and copied. On touch layouts, tapping an item expands the same evidence inside that card. The Data cell contains a compact three-row evidence table.
 - Education entries reserve a separate left metadata rail for dates and proportion-preserving school identifiers, leaving the degree column at full width. Virginia Tech uses its complete university lockup; Beijing Normal University uses the user-selected complete blue lockup containing the seal, calligraphic Chinese name, and English name. Multi-degree entries separate the bachelor's and master's degrees onto distinct lines.
 - Scientific Approach section describing evidence-backed working principles rather than subjective skill ratings. Its existing two-by-two desktop grid and geometry remain unchanged. Hovering or focusing a card reveals a same-row evidence panel over the opposite column; clicking locks the panel for text selection, while touch layouts expand the evidence within the active card.
 - Papers section after Scientific Approach, presenting verified bibliographic information and concise research focus for two published papers plus one clearly labeled research-in-progress item. The private proposal source is neither linked nor copied into public assets.
-- Compact closing contact section with public email and GitHub.
+- Compact closing contact section with the primary Virginia Tech email, the secondary personal email, and GitHub. The two email addresses share the existing email column, with the Virginia Tech address listed first.
 - Experience, Scientific Approach, Papers, and Contact open with compact numbered identifiers only; they do not use separate chapter slogans or large chapter-opening titles.
 
 ## 6. Out of Scope for Version 0.1
@@ -57,7 +57,7 @@ Primary audiences, in order:
 
 ## 7. Public and Private Information
 
-Public information may include name, broad location, public email, GitHub URL, educational institutions, degree status, selected experience, non-confidential methods, and substantiated aggregate figures already present in the resume.
+Public information may include name, broad location, the approved Virginia Tech and personal email addresses, GitHub URL, educational institutions, degree status, selected experience, non-confidential methods, and substantiated aggregate figures already present in the resume. `aolong@vt.edu` is the primary professional contact and must appear before `sean.sunaolong@gmail.com` wherever both are shown.
 
 Private information includes phone number, precise address, original resume files, unfiltered photos, style-reference images, credentials, private repository information, internal company data, and any fact not explicitly approved for public use.
 
