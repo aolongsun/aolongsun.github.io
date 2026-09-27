@@ -8,7 +8,6 @@ const ui = {
     skip: 'Skip to content',
     nav: [
       ['Experience', 'experience'],
-      ['Approach', 'approach'],
       ['Papers', 'papers'],
       ['Contact', 'contact'],
     ],
@@ -25,12 +24,10 @@ const ui = {
       method: 'Method',
       outcome: 'Outcome',
     },
-    approachKicker: '02 / Scientific Approach',
-    approachEvidence: 'Evidence from experience',
-    papersKicker: '03 / Papers',
+    papersKicker: '02 / Papers',
     paperFocus: 'Research focus',
     paperLink: 'View publication',
-    contactKicker: '04 / Contact',
+    contactKicker: '03 / Contact',
     contactBody:
       'I welcome conversations about statistical modeling, applied machine learning, experimentation, and data-intensive research.',
     github: 'View GitHub',
@@ -44,7 +41,6 @@ const ui = {
     skip: '跳转至正文',
     nav: [
       ['经历', 'experience'],
-      ['方法', 'approach'],
       ['文章', 'papers'],
       ['联系', 'contact'],
     ],
@@ -61,12 +57,10 @@ const ui = {
       method: '方法',
       outcome: '结论',
     },
-    approachKicker: '02 / 分析方法',
-    approachEvidence: '实践证据',
-    papersKicker: '03 / 文章',
+    papersKicker: '02 / 文章',
     paperFocus: '研究重点',
     paperLink: '查看文章',
-    contactKicker: '04 / 联系',
+    contactKicker: '03 / 联系',
     contactBody: '欢迎就统计建模、机器学习评估、实验设计与复杂数据分析等议题进行交流。',
     github: '查看 GitHub',
     backTop: '返回顶部',
@@ -77,13 +71,6 @@ const ui = {
   },
 } as const
 
-type EvidenceSection = 'experience' | 'approach'
-
-type PinnedEvidence = {
-  section: EvidenceSection
-  index: number
-} | null
-
 function App() {
   const [locale, setLocale] = useState<Locale>(() => {
     const saved = window.localStorage.getItem('aolong-site-language')
@@ -92,11 +79,8 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [previewExperience, setPreviewExperience] = useState<number | null>(null)
   const [experienceDetailTop, setExperienceDetailTop] = useState(0)
-  const [previewApproach, setPreviewApproach] = useState<number | null>(null)
-  const [approachDetailGeometry, setApproachDetailGeometry] = useState({ top: 0, left: 0, width: 0, height: 0 })
-  const [pinnedEvidence, setPinnedEvidence] = useState<PinnedEvidence>(null)
+  const [pinnedExperience, setPinnedExperience] = useState<number | null>(null)
   const backgroundLayoutRef = useRef<HTMLDivElement>(null)
-  const approachGridRef = useRef<HTMLDivElement>(null)
 
   const copy = profile.locales[locale]
   const labels = ui[locale]
@@ -120,8 +104,7 @@ function App() {
     const mobileQuery = window.matchMedia('(max-width: 820px)')
     const clearResponsivePreviews = () => {
       setPreviewExperience(null)
-      setPreviewApproach(null)
-      setPinnedEvidence(null)
+      setPinnedExperience(null)
     }
 
     mobileQuery.addEventListener('change', clearResponsivePreviews)
@@ -130,16 +113,15 @@ function App() {
 
   useEffect(() => {
     const closeEvidence = () => {
-      setPinnedEvidence(null)
+      setPinnedExperience(null)
       setPreviewExperience(null)
-      setPreviewApproach(null)
     }
 
     const closeOnOutsidePointer = (event: PointerEvent) => {
       const target = event.target
       if (
         target instanceof Element &&
-        target.closest('.experience-item, .approach-card, .experience-detail, .approach-evidence-panel')
+        target.closest('.experience-item, .experience-detail')
       ) {
         return
       }
@@ -162,10 +144,6 @@ function App() {
 
   const navItems = useMemo(() => labels.nav, [labels.nav])
   const experience = previewExperience === null ? null : copy.experience[previewExperience]
-  const approach = previewApproach === null ? null : copy.approach[previewApproach]
-  const pinnedExperience =
-    pinnedEvidence?.section === 'experience' ? pinnedEvidence.index : null
-  const pinnedApproach = pinnedEvidence?.section === 'approach' ? pinnedEvidence.index : null
 
   const showExperience = (index: number, element: HTMLButtonElement) => {
     if (!window.matchMedia('(min-width: 821px)').matches) {
@@ -178,10 +156,9 @@ function App() {
       const itemBounds = element.getBoundingClientRect()
       setExperienceDetailTop(Math.max(0, itemBounds.top - layoutBounds.top))
     }
-    if (pinnedEvidence && (pinnedEvidence.section !== 'experience' || pinnedEvidence.index !== index)) {
-      setPinnedEvidence(null)
+    if (pinnedExperience !== null && pinnedExperience !== index) {
+      setPinnedExperience(null)
     }
-    setPreviewApproach(null)
     setPreviewExperience(index)
   }
 
@@ -192,56 +169,14 @@ function App() {
   }
 
   const toggleExperience = (index: number) => {
-    if (pinnedEvidence?.section === 'experience' && pinnedEvidence.index === index) {
-      setPinnedEvidence(null)
+    if (pinnedExperience === index) {
+      setPinnedExperience(null)
       setPreviewExperience(null)
       return
     }
 
-    setPinnedEvidence({ section: 'experience', index })
+    setPinnedExperience(index)
     setPreviewExperience(index)
-    setPreviewApproach(null)
-  }
-
-  const showApproach = (index: number, element: HTMLElement) => {
-    if (!window.matchMedia('(min-width: 821px)').matches) {
-      return
-    }
-    const grid = approachGridRef.current
-    if (grid) {
-      const gridBounds = grid.getBoundingClientRect()
-      const itemBounds = element.getBoundingClientRect()
-      const left = index % 2 === 0 ? itemBounds.right - gridBounds.left - grid.clientLeft : 0
-      setApproachDetailGeometry({
-        top: itemBounds.top - gridBounds.top - grid.clientTop,
-        left,
-        width: itemBounds.width,
-        height: itemBounds.height,
-      })
-    }
-    if (pinnedEvidence && (pinnedEvidence.section !== 'approach' || pinnedEvidence.index !== index)) {
-      setPinnedEvidence(null)
-    }
-    setPreviewExperience(null)
-    setPreviewApproach(index)
-  }
-
-  const hideApproach = () => {
-    if (window.matchMedia('(min-width: 821px)').matches) {
-      setPreviewApproach(pinnedApproach)
-    }
-  }
-
-  const toggleApproach = (index: number) => {
-    if (pinnedEvidence?.section === 'approach' && pinnedEvidence.index === index) {
-      setPinnedEvidence(null)
-      setPreviewApproach(null)
-      return
-    }
-
-    setPinnedEvidence({ section: 'approach', index })
-    setPreviewApproach(index)
-    setPreviewExperience(null)
   }
 
   const chooseLanguage = (next: Locale) => {
@@ -298,7 +233,7 @@ function App() {
         <nav className="nav-shell" aria-label={locale === 'en' ? 'Primary navigation' : '主导航'}>
           <a className="wordmark" href="#top" aria-label={`${copy.name} — ${labels.backTop}`}>
             <span className="wordmark-mark">AS</span>
-            <span className={`wordmark-name ${locale === 'zh' ? 'is-zh' : 'is-en'}`}>{copy.name}</span>
+            <span className="wordmark-name">{copy.name}</span>
           </a>
 
           <button
@@ -410,7 +345,7 @@ function App() {
           </div>
 
           <div className="hero-footer shell">
-            <span className="hero-counter">00 — 04</span>
+            <span className="hero-counter">00 — 03</span>
             <a href="#experience" className="scroll-cue" aria-label={labels.viewWork}>
               <span aria-hidden="true">↓</span>
             </a>
@@ -529,96 +464,6 @@ function App() {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section approach-section" id="approach" aria-labelledby="approach-title">
-          <div className="shell">
-            <div className="chapter-heading">
-              <h2 className="eyebrow" id="approach-title">{labels.approachKicker}</h2>
-            </div>
-
-            <div className="approach-grid" ref={approachGridRef}>
-              {copy.approach.map((item, index) => (
-                <article
-                  className={`approach-card ${previewApproach === index ? 'is-active' : ''}`}
-                  key={item.index}
-                  tabIndex={0}
-                  role="button"
-                  aria-expanded={previewApproach === index}
-                  aria-pressed={pinnedApproach === index}
-                  onMouseEnter={(event) => showApproach(index, event.currentTarget)}
-                  onMouseLeave={hideApproach}
-                  onFocus={(event) => showApproach(index, event.currentTarget)}
-                  onBlur={hideApproach}
-                  onClick={(event) => {
-                    if ((event.target as Element).closest('.approach-evidence-inline')) {
-                      return
-                    }
-                    toggleApproach(index)
-                  }}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                      event.preventDefault()
-                      toggleApproach(index)
-                    }
-                  }}
-                >
-                  <span className="approach-index">{item.index}</span>
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </div>
-                  {previewApproach === index && (
-                    <div className="approach-evidence-inline">
-                      <p className="approach-evidence-label">{labels.approachEvidence}</p>
-                      {item.evidence.map((evidence) => (
-                        <div className="approach-evidence-item" key={evidence.source}>
-                          <div>
-                            <strong>{evidence.source}</strong>
-                            <span>{evidence.signal}</span>
-                          </div>
-                          <p>{evidence.detail}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </article>
-              ))}
-              {approach && (
-                <aside
-                  className={`approach-evidence-panel ${pinnedApproach === previewApproach ? 'is-pinned' : ''}`}
-                  aria-live="polite"
-                  style={
-                    {
-                      '--approach-detail-top': `${approachDetailGeometry.top}px`,
-                      '--approach-detail-left': `${approachDetailGeometry.left}px`,
-                      '--approach-detail-width': `${approachDetailGeometry.width}px`,
-                      '--approach-detail-height': `${approachDetailGeometry.height}px`,
-                    } as React.CSSProperties
-                  }
-                >
-                  <header>
-                    <span>{approach.index}</span>
-                    <div>
-                      <p>{labels.approachEvidence}</p>
-                      <h3>{approach.title}</h3>
-                    </div>
-                  </header>
-                  <div className="approach-evidence-list">
-                    {approach.evidence.map((evidence) => (
-                      <article className="approach-evidence-item" key={evidence.source}>
-                        <div>
-                          <strong>{evidence.source}</strong>
-                          <span>{evidence.signal}</span>
-                        </div>
-                        <p>{evidence.detail}</p>
-                      </article>
-                    ))}
-                  </div>
-                </aside>
-              )}
             </div>
           </div>
         </section>

@@ -61,7 +61,7 @@
       "metaDescription": "Aolong Sun is a Statistics PhD student working across statistical modeling, data-intensive research, and machine learning.",
       "name": "Aolong Sun",
       "role": "Statistics PhD Student",
-      "eyebrow": "Statistics · Modeling · Machine Learning",
+      "eyebrow": "Statistics",
       "headline": "Turning complex data into rigorous models, interpretable evidence, and reproducible decisions.",
       "shortBio": "I am a Statistics PhD student at Virginia Tech, with B.S. and M.S. training in statistics from Beijing Normal University. My work spans statistical inference, experimental design, multi-source data, and applied modeling. I am building toward reliable machine-learning systems by combining scientific evaluation with hands-on implementation.",
       "location": "Blacksburg, Virginia, USA",
@@ -199,76 +199,6 @@
           "title": "Tourism Market Segment Formation through Individual Social Interactions: A Discrete Choice Perspective",
           "focus": "Uses a discrete-choice perspective to investigate how social interactions and reference groups shape tourism preferences and the formation of market segments."
         }
-      ],
-      "approach": [
-        {
-          "index": "A",
-          "title": "Rigor Through Testing",
-          "text": "Rigor comes from testing assumptions, comparisons, and uncertainty—not from model complexity alone.",
-          "evidence": [
-            {
-              "source": "The Hong Kong Polytechnic University",
-              "signal": "1,300+ responses · 11 cities",
-              "detail": "Questionnaire and experimental design led into multinomial Logit modeling, parameter comparisons, and scenario diagnostics."
-            },
-            {
-              "source": "Virginia Tech",
-              "signal": "Simulation · sensitivity · evaluation",
-              "detail": "Current research training combines building-climate simulation with sensitivity analysis and transparent model evaluation."
-            }
-          ]
-        },
-        {
-          "index": "B",
-          "title": "Compare Before Complexity",
-          "text": "Start with interpretable comparisons, then ask whether added complexity produces a meaningful gain.",
-          "evidence": [
-            {
-              "source": "The Hong Kong Polytechnic University",
-              "signal": "Scenario comparison · parameter diagnosis",
-              "detail": "Model behavior was compared across scenarios before quantitative results were interpreted as market-segmentation evidence."
-            },
-            {
-              "source": "DiDi",
-              "signal": "30,000+ records · feedback loop",
-              "detail": "Choice modeling was considered alongside model failure, sample bias, user outreach, and operational data feedback."
-            }
-          ]
-        },
-        {
-          "index": "C",
-          "title": "Trace the Data",
-          "text": "Definitions, missingness, anomalies, and source changes are part of the analysis—not cleanup details.",
-          "evidence": [
-            {
-              "source": "National Accounting Research Center",
-              "signal": "4 source families · 12 categories",
-              "detail": "Multi-regional input-output, customs, balance-of-payments, and services data required definition reconciliation and anomaly review."
-            },
-            {
-              "source": "National Bureau of Statistics of China",
-              "signal": "World Bank · IMF · OECD",
-              "detail": "International indicators were checked against source documentation and aligned definitions before entering the monitoring workflow."
-            }
-          ]
-        },
-        {
-          "index": "D",
-          "title": "Make the Work Inspectable",
-          "text": "An analysis should leave a clear path that another person can inspect, rerun, and challenge.",
-          "evidence": [
-            {
-              "source": "DiDi",
-              "signal": "Daily SQL workflow · 30,000+ records",
-              "detail": "Operational lead data moved through repeatable extraction, cleaning, filtering, and feedback steps."
-            },
-            {
-              "source": "National Bureau of Statistics of China",
-              "signal": "3 sources · 11 reports",
-              "detail": "A structured monitoring process connected verified indicator definitions with concise analytical reporting."
-            }
-          ]
-        }
       ]
     },
     "zh": {
@@ -276,7 +206,7 @@
       "metaDescription": "孙奥龙现为弗吉尼亚理工大学统计学博士生，研究与实践涵盖统计建模、复杂数据分析和机器学习评估。",
       "name": "孙奥龙",
       "role": "统计学博士生",
-      "eyebrow": "统计建模 · 数据分析 · 机器学习",
+      "eyebrow": "统计学",
       "headline": "以严谨模型分析复杂数据，形成可解释、可检验、可复现的结论。",
       "shortBio": "我现于弗吉尼亚理工大学攻读统计学博士，本科与硕士阶段就读于北京师范大学。研究与实践涵盖统计推断、实验设计、多源数据治理及应用建模。现阶段，我侧重将科学评估方法用于机器学习实践，同时关注模型比较的合理性、结论的可靠性与分析过程的可复现性。",
       "location": "美国弗吉尼亚州黑堡",
@@ -413,76 +343,6 @@
           "status": "在研项目",
           "title": "Tourism Market Segment Formation through Individual Social Interactions: A Discrete Choice Perspective",
           "focus": "从离散选择视角考察社会互动与参照群体如何影响旅游偏好及市场细分的形成。"
-        }
-      ],
-      "approach": [
-        {
-          "index": "A",
-          "title": "统计假设与模型检验",
-          "text": "以系统检验保证分析严谨性，重点考察模型假设、比较基准与不确定性，而非单纯追求复杂度。",
-          "evidence": [
-            {
-              "source": "香港理工大学",
-              "signal": "1,300+ 份样本 · 11 座城市",
-              "detail": "基于问卷与实验设计建立多项 Logit 模型，并通过参数比较和情景诊断检验模型表现。"
-            },
-            {
-              "source": "弗吉尼亚理工大学",
-              "signal": "仿真 · 敏感性分析 · 评估",
-              "detail": "在建筑与气候研究中结合仿真、敏感性分析和模型评估，并明确区分阶段性探索与已验证结论。"
-            }
-          ]
-        },
-        {
-          "index": "B",
-          "title": "比较基准与复杂度控制",
-          "text": "先建立可解释的比较基准，再评估复杂方法能否带来具有实际意义的增益。",
-          "evidence": [
-            {
-              "source": "香港理工大学",
-              "signal": "情景比较 · 参数诊断",
-              "detail": "比较不同情景下的参数与模型表现，再据此解释市场细分结果。"
-            },
-            {
-              "source": "滴滴出行",
-              "signal": "30,000+ 条记录 · 反馈回流",
-              "detail": "除判别结果外，同时考察模型失效、样本偏差、用户触达和数据回流所反映的实际限制。"
-            }
-          ]
-        },
-        {
-          "index": "C",
-          "title": "数据溯源与口径核验",
-          "text": "将数据来源、统计口径、缺失与异常等质量问题纳入建模决策。",
-          "evidence": [
-            {
-              "source": "国民核算研究中心",
-              "signal": "4 类来源 · 12 类服务贸易数据",
-              "detail": "整合投入产出表、海关、国际收支与服务贸易数据，并逐项统一统计定义、核查异常。"
-            },
-            {
-              "source": "国家统计局国际数据和信息中心",
-              "signal": "世界银行 · IMF · OECD",
-              "detail": "国际指标纳入监测流程前，先核验来源文件、指标定义与统计口径。"
-            }
-          ]
-        },
-        {
-          "index": "D",
-          "title": "可复核的分析流程",
-          "text": "保留清晰、可追溯的分析路径，使结果能够被复核、复现与质询。",
-          "evidence": [
-            {
-              "source": "滴滴出行",
-              "signal": "日常 SQL 流程 · 30,000+ 条记录",
-              "detail": "通过稳定的数据提取、清洗、筛选与回流步骤，形成可重复执行的日常业务流程。"
-            },
-            {
-              "source": "国家统计局国际数据和信息中心",
-              "signal": "3 类来源 · 11 份报告",
-              "detail": "以固定监测框架衔接经核验的指标口径与结构化分析报告。"
-            }
-          ]
         }
       ]
     }

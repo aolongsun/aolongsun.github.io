@@ -1,19 +1,3 @@
-@font-face {
-  font-family: "Aolong Signature Latin";
-  src: url("/fonts/aolong-signature-latin.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Aolong Signature Zh";
-  src: url("/fonts/aolong-signature-zh.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
-}
-
 :root {
   color-scheme: light;
   --ink: #0a1020;
@@ -168,24 +152,15 @@ h4 {
 .wordmark-name {
   display: inline-block;
   color: var(--ink);
+  font-family: var(--font-body);
   font-size: 1.26rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1;
   text-transform: none;
   transform: translateY(-1px);
   white-space: nowrap;
-}
-
-.wordmark-name.is-en {
-  font-family: "Aolong Signature Latin", "Brush Script MT", cursive;
-}
-
-.wordmark-name.is-zh {
-  font-family: "Aolong Signature Zh", "STKaiti", "KaiTi", serif;
-  font-size: 1.36rem;
-  letter-spacing: 0.01em;
 }
 
 .nav-panel,
@@ -1018,191 +993,6 @@ h4 {
   text-transform: uppercase;
 }
 
-.approach-section {
-  border-top: 1px solid rgba(7, 17, 31, 0.12);
-  color: var(--ink);
-  background: var(--paper);
-}
-
-.approach-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  border-top: 1px solid rgba(7, 17, 31, 0.4);
-  border-left: 1px solid rgba(7, 17, 31, 0.2);
-}
-
-.approach-card {
-  position: relative;
-  min-height: 280px;
-  padding: clamp(30px, 3vw, 48px);
-  display: grid;
-  grid-template-columns: 54px 1fr;
-  gap: clamp(22px, 3vw, 52px);
-  border-right: 1px solid rgba(7, 17, 31, 0.2);
-  border-bottom: 1px solid rgba(7, 17, 31, 0.2);
-  cursor: pointer;
-  transition: color 200ms ease, background 200ms ease;
-}
-
-.approach-card:hover,
-.approach-card:focus-visible,
-.approach-card.is-active {
-  color: var(--paper);
-  background: var(--blue);
-}
-
-.approach-card:focus-visible {
-  z-index: 4;
-  outline: 3px solid var(--cyan);
-  outline-offset: -3px;
-}
-
-.approach-index {
-  color: var(--blue);
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 900;
-}
-
-.approach-card:hover .approach-index,
-.approach-card:focus-visible .approach-index,
-.approach-card.is-active .approach-index {
-  color: var(--cyan);
-}
-
-.approach-card h3 {
-  margin-bottom: 22px;
-  font-family: var(--font-display);
-  font-size: clamp(1.35rem, 1.65vw, 1.8rem);
-  letter-spacing: -0.012em;
-  line-height: 1.25;
-}
-
-.approach-card p {
-  max-width: 500px;
-  margin-bottom: 0;
-  color: rgba(7, 17, 31, 0.68);
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
-.approach-card:hover > div > p,
-.approach-card:focus-visible > div > p,
-.approach-card.is-active > div > p {
-  color: rgba(244, 240, 232, 0.82);
-}
-
-.approach-evidence-panel {
-  position: absolute;
-  z-index: 3;
-  top: var(--approach-detail-top);
-  left: var(--approach-detail-left);
-  width: var(--approach-detail-width);
-  height: var(--approach-detail-height);
-  padding: 22px 28px;
-  overflow: hidden;
-  color: var(--paper);
-  background: var(--blue);
-  border-right: 1px solid rgba(7, 17, 31, 0.2);
-  border-bottom: 1px solid rgba(7, 17, 31, 0.2);
-  pointer-events: none;
-  animation: approach-evidence-reveal 160ms ease-out both;
-}
-
-.approach-evidence-panel.is-pinned {
-  pointer-events: auto;
-  user-select: text;
-}
-
-@keyframes approach-evidence-reveal {
-  from {
-    opacity: 0;
-    transform: translateX(var(--approach-reveal-shift, 8px));
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.approach-evidence-panel header {
-  margin-bottom: 14px;
-  display: grid;
-  grid-template-columns: 42px 1fr;
-  gap: 16px;
-  align-items: start;
-}
-
-.approach-evidence-panel header > span {
-  color: var(--cyan);
-  font-family: var(--font-display);
-  font-size: 1.55rem;
-  font-weight: 900;
-  line-height: 1;
-}
-
-.approach-evidence-panel header p,
-.approach-evidence-label {
-  margin: 0 0 5px;
-  color: var(--cyan);
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  line-height: 1.3;
-  text-transform: uppercase;
-}
-
-.approach-evidence-panel header h3 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 1.5vw, 1.65rem);
-  letter-spacing: -0.02em;
-  line-height: 1.12;
-}
-
-.approach-evidence-list {
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
-}
-
-.approach-evidence-item {
-  padding: 11px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-}
-
-.approach-evidence-item > div {
-  margin-bottom: 7px;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.approach-evidence-item strong {
-  color: var(--paper);
-  font-size: 0.74rem;
-  line-height: 1.3;
-}
-
-.approach-evidence-item span {
-  color: var(--cyan);
-  font-size: 0.62rem;
-  font-weight: 750;
-  line-height: 1.35;
-  text-align: right;
-}
-
-.approach-evidence-item p {
-  margin: 0;
-  color: rgba(244, 240, 232, 0.78);
-  font-size: clamp(0.69rem, 0.76vw, 0.78rem);
-  line-height: 1.42;
-}
-
-.approach-evidence-inline {
-  display: none;
-}
-
 .papers-section {
   border-top: 1px solid rgba(7, 17, 31, 0.12);
   color: var(--ink);
@@ -1622,38 +1412,6 @@ h4 {
     margin-bottom: 2px;
   }
 
-  .approach-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .approach-evidence-panel {
-    display: none;
-  }
-
-  .approach-evidence-inline {
-    grid-column: 1 / -1;
-    margin-top: 26px;
-    display: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.35);
-  }
-
-  .approach-card.is-active .approach-evidence-inline {
-    display: block;
-  }
-
-  .approach-evidence-inline .approach-evidence-label {
-    margin-top: 20px;
-  }
-
-  .approach-evidence-inline .approach-evidence-item > div {
-    align-items: flex-start;
-  }
-
-  .approach-evidence-inline .approach-evidence-item p {
-    color: rgba(244, 240, 232, 0.78);
-    font-size: 0.82rem;
-  }
-
   .paper-item {
     grid-template-columns: 46px minmax(0, 1fr);
     grid-template-areas:
@@ -1827,11 +1585,6 @@ h4 {
   .experience-item.is-active {
     padding-inline: 18px;
     transform: none;
-  }
-
-  .approach-card {
-    min-height: 260px;
-    grid-template-columns: 40px 1fr;
   }
 
   .paper-focus {

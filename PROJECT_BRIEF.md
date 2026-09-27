@@ -36,15 +36,14 @@ Primary audiences, in order:
 
 - Full-viewport introduction that integrates portrait, identity, positioning, academic background, research interests, links, and calls to action in one composition.
 - Fixed glass-effect navigation with English/Chinese switching.
-- The navigation wordmark pairs the unchanged geometric `AS` monogram with a handwritten full-name signature: locally hosted Kaushan Script for English and a three-glyph Ma Shan Zheng subset for Chinese. The two elements use contrasting typographic roles rather than repeating the same brush treatment.
+- The navigation wordmark pairs the unchanged geometric `AS` monogram with the full name in the site's body sans-serif typeface, using the same size, weight, and line height in both languages.
 - The portrait sits beside the identity flow without a separate profile panel. Hero facts summarize the overall academic and professional path rather than one experience, and both public email addresses plus GitHub remain part of the same introduction.
 - The Chinese name remains on one line. Responsive layouts preserve the same hierarchy while allowing the portrait and copy to stack naturally on small screens.
 - One unified Experience section containing scannable education points and an evidence browser organized around problem, data, method, and outcome. On desktop, hover or keyboard focus reveals a left-side panel aligned vertically with the active experience item; clicking locks the panel so its text can be selected and copied. On touch layouts, tapping an item expands the same evidence inside that card. The Data cell contains a compact three-row evidence table.
 - Education entries reserve a separate left metadata rail for dates and proportion-preserving school identifiers, leaving the degree column at full width. Virginia Tech uses its complete university lockup; Beijing Normal University uses the user-selected complete blue lockup containing the seal, calligraphic Chinese name, and English name. Multi-degree entries separate the bachelor's and master's degrees onto distinct lines.
-- Scientific Approach section describing evidence-backed working principles rather than subjective skill ratings. Its existing two-by-two desktop grid and geometry remain unchanged. Hovering or focusing a card reveals a same-row evidence panel over the opposite column; clicking locks the panel for text selection, while touch layouts expand the evidence within the active card.
-- Papers section after Scientific Approach, presenting verified bibliographic information and concise research focus for two published papers plus one clearly labeled research-in-progress item. The private proposal source is neither linked nor copied into public assets.
+- Papers section after Experience, presenting verified bibliographic information and concise research focus for two published papers plus one clearly labeled research-in-progress item. The private proposal source is neither linked nor copied into public assets.
 - Compact closing contact section with the primary Virginia Tech email, the secondary personal email, and GitHub. The two email addresses share the existing email column, with the Virginia Tech address listed first.
-- Experience, Scientific Approach, Papers, and Contact open with compact numbered identifiers only; they do not use separate chapter slogans or large chapter-opening titles.
+- Experience, Papers, and Contact open with compact, consecutive numbered identifiers (01–03) only; they do not use separate chapter slogans or large chapter-opening titles. The Hero eyebrow reads `Statistics / 统计学`.
 
 ## 6. Out of Scope for Version 0.1
 
@@ -82,7 +81,7 @@ Design principles:
 
 - Modern and distinctive, but calm enough for academic and professional reading.
 - Warm paper and near-black form the site-wide base; Klein blue is the primary accent for links, actions, evidence states, and selected identity details.
-- Hero, Experience, Scientific Approach, Papers, and Contact share the same warm-paper field, with the narrow dark footer serving as the only major background break.
+- Hero, Experience, Papers, and Contact share the same warm-paper field, with the narrow dark footer serving as the only major background break.
 - Sections read as consecutive parts of one document, share one responsive chapter-spacing rule, and are distinguished through compact identifiers, alignment, and subtle one-pixel rules rather than separate visual scenes.
 - Use disciplined whitespace, consistent thin rules, strong but measured typography, and only occasional softened geometric details.
 - Reserve glass blur primarily for the fixed navigation.
@@ -98,8 +97,7 @@ Design principles:
 - Buttons and links have coordinated hover and keyboard-focus feedback.
 - Motion must not cause layout shift.
 - Touch users must not depend on hover to understand or activate controls.
-- Experience and Approach use the same evidence interaction model: hover or focus previews on desktop, click locks the panel for copying, click outside or press Escape closes it, and touch layouts expand evidence inside the active card.
-- Approach evidence panels are overlays on desktop and must not reflow, resize, or restyle the underlying two-by-two card framework.
+- Experience evidence previews on desktop hover or focus; clicking locks the panel for copying, while clicking outside or pressing Escape closes it. Touch layouts expand evidence inside the active card.
 - All interaction motion becomes effectively static when `prefers-reduced-motion` is enabled.
 
 ## 11. Layout and Responsive Requirements
@@ -135,7 +133,7 @@ Design principles:
 
 - The site starts locally and creates a successful production build.
 - English appears on a first visit and the language control switches the complete interface to Chinese.
-- Hero, unified experience, scientific approach, papers, and contact sections are complete.
+- Hero, unified Experience, Papers, and Contact sections are complete.
 - Fixed navigation, hover/focus interactions, and reduced-motion behavior work.
 - Public content is accurate, bilingual, and contains no phone number or private source material.
 - The design is recognizably custom while maintaining recruiter-friendly scanning and readability.
